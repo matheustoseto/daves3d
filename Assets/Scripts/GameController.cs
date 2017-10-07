@@ -8,13 +8,23 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        door = GameObject.FindGameObjectWithTag("Door");
+        
     }
 
     // Update is called once per frame
     void Update () {
 
 	}
+
+    private void Awake()
+    {
+        door = GameObject.FindGameObjectWithTag("Door");
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        door = GameObject.FindGameObjectWithTag("Door");
+    }
 
     public void OpenDoor() {
         door.GetComponent<MeshRenderer>().material = materialOpenDoor;

@@ -8,7 +8,7 @@ public class Score : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		scoreController = GameObject.FindGameObjectWithTag("ScoreController").GetComponent<ScoreController>();     
+		scoreController = GameObject.FindGameObjectWithTag("Controller").GetComponent<ScoreController>();     
     }
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class Score : MonoBehaviour {
 		if (other.gameObject.tag.Equals("Player")) {
 			scoreController.AddScore(points);
 			if (gameObject.tag.Equals("Cup"))
-				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameController>().OpenDoor();
+				GameObject.FindGameObjectWithTag("Controller").GetComponent<GameController>().OpenDoor();
 			Destroy(gameObject);
 		}
     }

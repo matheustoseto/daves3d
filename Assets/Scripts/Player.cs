@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
     //Animator anim;                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
-    float camRayLength = 50f;          // The length of the ray from the camera into the scene.
+    float camRayLength = 100f;          // The length of the ray from the camera into the scene.
 
 
     // Use this for initialization
@@ -43,24 +43,30 @@ public class Player : MonoBehaviour {
 
         // Jump Player
         Jump();
+
+        //Call Fire
+        Fire();
     }
 
     // Update is called once per frame
     void Update() {
+        
+    }
 
-        getDirectionBullet();
-        if (Input.GetKeyDown(KeyCode.LeftControl) && getPistol && fireReady) {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+    void Fire()
+    {
+        if (Input.GetMouseButtonDown(0) && getPistol && fireReady)
+        {
+            Instantiate(bullet, transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
             fireReady = false;
             timer = 0.5f;
         }
-        
-        if(!fireReady)
+
+        if (!fireReady)
             timer -= Time.deltaTime;
 
-        if (timer < 0f) 
+        if (timer < 0f)
             fireReady = true;
-        
     }
 
     void Move(float h, float v)
@@ -84,7 +90,7 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space) && jump && isGround)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
+            playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
             jump = false;
         }
     }
@@ -105,17 +111,6 @@ public class Player : MonoBehaviour {
             getPistol = true;
             Destroy(collision.gameObject);
         }
-    }
-
-    private void getDirectionBullet(){
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.zPositive;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.zNegative;
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.xPositive;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.xNegative;
     }
 
     void Turning()
