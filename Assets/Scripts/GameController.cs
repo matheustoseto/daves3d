@@ -8,11 +8,11 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        door = GameObject.FindGameObjectWithTag("Door");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 
 	}
 
