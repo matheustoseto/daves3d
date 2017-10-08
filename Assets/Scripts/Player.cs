@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -9,6 +10,9 @@ public class Player : MonoBehaviour {
 	public GameObject bullet;
     private float timer = 0.5f;
     public bool fireReady = true;
+    public GameObject gun;
+
+    public Vector3 startPoint;
 
     public float speed = 6f;            // The speed that the player will move at.
     Vector3 movement;                   // The vector to store the direction of the player's movement.
@@ -20,7 +24,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        // Create a layer mask for the floor layer.
+        startPoint = transform.position;
         floorMask = LayerMask.GetMask("Floor");
         playerRigidbody = GetComponent<Rigidbody>();
     }
@@ -50,14 +54,21 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+            SceneManager.LoadScene("Fase_" + 1, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            SceneManager.LoadScene("Fase_" + 2, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            SceneManager.LoadScene("Fase_" + 3, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            SceneManager.LoadScene("Fase_" + 4, LoadSceneMode.Single);
     }
 
     void Fire()
     {
         if (Input.GetMouseButtonDown(0) && getPistol && fireReady)
         {
-            Instantiate(bullet, transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
+            Instantiate(bullet, gun.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
             fireReady = false;
             timer = 0.5f;
         }

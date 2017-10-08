@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour {
     public GameObject bullet;
     public bool fireReady = true;
     private float timer = 1f;
+    public GameObject gun;
+
    // public Bullet.bulletDirection bulletDirection = Bullet.bulletDirection.xNegative;
 
     // Use this for initialization
@@ -22,7 +24,7 @@ public class Enemy : MonoBehaviour {
             fireReady = true;
 
         if (fireReady){
-            Instantiate(bullet, transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
+            Instantiate(bullet, gun.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
             fireReady = false;
             timer = 1f;
         }
