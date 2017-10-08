@@ -7,8 +7,10 @@ public class Player : MonoBehaviour {
     private bool jump = true;
     private bool isGround = false;
 	public bool getPistol = false;
+    public bool getJackPack = true;
 	public GameObject bullet;
     private float timer = 0.5f;
+    private float timerJackPack = 0.05f;
     public bool fireReady = true;
     public GameObject gun;
 
@@ -50,6 +52,8 @@ public class Player : MonoBehaviour {
 
         //Call Fire
         Fire();
+
+        JackPack();
     }
 
     // Update is called once per frame
@@ -62,6 +66,20 @@ public class Player : MonoBehaviour {
             SceneManager.LoadScene("Fase_" + 3, LoadSceneMode.Single);
         if (Input.GetKeyDown(KeyCode.Alpha4))
             SceneManager.LoadScene("Fase_" + 4, LoadSceneMode.Single);
+    }
+
+    void JackPack()
+    {
+        if (Input.GetMouseButton(1) && getJackPack && timerJackPack < 0f && transform.position.y < 3f)
+        {
+            speed = 2;
+            playerRigidbody.AddForce(new Vector3(0, 1f, 0), ForceMode.Impulse);
+            timerJackPack = 0.05f;
+        }
+
+        if (Input.GetMouseButton(1))
+            timerJackPack -= Time.deltaTime;
+
     }
 
     void Fire()
@@ -102,7 +120,6 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && jump && isGround)
         {
             playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
-            jump = false;
         }
     }
 
@@ -121,6 +138,19 @@ public class Player : MonoBehaviour {
 		if (collision.gameObject.tag.Equals("Pistol")) {
             getPistol = true;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag.Equals("JackPack"))
+        {
+            getJackPack = true;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Ground"))
+        {
+            jump = false;
         }
     }
 

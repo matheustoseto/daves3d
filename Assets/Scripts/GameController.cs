@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     public Texture2D davesLife;
     public Texture2D openDoorTexture;
     public Texture2D gunTexture;
+    public Texture2D jackpackTexture;
     public bool openDoor = false;
 
     private string fmt = "00000";
@@ -79,6 +80,9 @@ public class GameController : MonoBehaviour {
 
             if (openDoor)
                 GUI.Label(new Rect(Screen.width - 271, Screen.height - 45, 400, 100), openDoorTexture);
+
+            if(player.GetComponent<Player>().getJackPack)
+                GUI.Label(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 45, 300, 50), jackpackTexture);
         }
         else
         {

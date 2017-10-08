@@ -14,11 +14,20 @@ public class LoadScene : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
     private void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag.Equals("Player") && getCup)
-            SceneManager.LoadScene("Fase_" + newStage, LoadSceneMode.Single);
+        if (collision.gameObject.tag.Equals("Player") && getCup)
+        {
+            if (newStage != 0)
+            {
+                SceneManager.LoadScene("Fase_" + newStage, LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+            }
+        }            
     }
 }

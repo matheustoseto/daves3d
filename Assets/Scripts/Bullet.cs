@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour {
 
     public float speed = 15f;
     private float timer = 1.5f;
+    private GameController gameController;
     public string targetTag = "";
 
     // Use this for initialization
@@ -20,6 +21,11 @@ public class Bullet : MonoBehaviour {
             Destroy(gameObject);
     }
 
+    void Awake()
+    {
+        gameController = GameObject.FindGameObjectWithTag("Controller").GetComponent<GameController>();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
@@ -27,7 +33,7 @@ public class Bullet : MonoBehaviour {
         {
             if ("Player".Equals(targetTag))
             {
-                collision.transform.position = collision.gameObject.GetComponent<Player>().startPoint;
+                gameController.RemoveLife();
             }
             else
             {
