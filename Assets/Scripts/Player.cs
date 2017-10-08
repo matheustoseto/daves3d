@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -9,18 +10,21 @@ public class Player : MonoBehaviour {
 	public GameObject bullet;
     private float timer = 0.5f;
     public bool fireReady = true;
+    public GameObject gun;
+
+    public Vector3 startPoint;
 
     public float speed = 6f;            // The speed that the player will move at.
     Vector3 movement;                   // The vector to store the direction of the player's movement.
     //Animator anim;                      // Reference to the animator component.
     Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
-    float camRayLength = 50f;          // The length of the ray from the camera into the scene.
+    float camRayLength = 100f;          // The length of the ray from the camera into the scene.
 
 
     // Use this for initialization
     void Start () {
-        // Create a layer mask for the floor layer.
+        startPoint = transform.position;
         floorMask = LayerMask.GetMask("Floor");
         playerRigidbody = GetComponent<Rigidbody>();
     }
@@ -43,24 +47,37 @@ public class Player : MonoBehaviour {
 
         // Jump Player
         Jump();
+
+        //Call Fire
+        Fire();
     }
 
     // Update is called once per frame
     void Update() {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+            SceneManager.LoadScene("Fase_" + 1, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            SceneManager.LoadScene("Fase_" + 2, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            SceneManager.LoadScene("Fase_" + 3, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            SceneManager.LoadScene("Fase_" + 4, LoadSceneMode.Single);
+    }
 
-        getDirectionBullet();
-        if (Input.GetKeyDown(KeyCode.LeftControl) && getPistol && fireReady) {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+    void Fire()
+    {
+        if (Input.GetMouseButtonDown(0) && getPistol && fireReady)
+        {
+            Instantiate(bullet, gun.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
             fireReady = false;
             timer = 0.5f;
         }
-        
-        if(!fireReady)
+
+        if (!fireReady)
             timer -= Time.deltaTime;
 
-        if (timer < 0f) 
+        if (timer < 0f)
             fireReady = true;
-        
     }
 
     void Move(float h, float v)
@@ -84,7 +101,7 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space) && jump && isGround)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
+            playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
             jump = false;
         }
     }
@@ -105,17 +122,6 @@ public class Player : MonoBehaviour {
             getPistol = true;
             Destroy(collision.gameObject);
         }
-    }
-
-    private void getDirectionBullet(){
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.zPositive;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.zNegative;
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.xPositive;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            bullet.GetComponent<Bullet>().direction = Bullet.bulletDirection.xNegative;
     }
 
     void Turning()
