@@ -120,6 +120,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && jump && isGround)
         {
             playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
+            jump = false;
         }
     }
 
