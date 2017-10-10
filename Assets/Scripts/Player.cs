@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    private bool jump = true;
-    private bool isGround = false;
+    public bool jump = true;
+    public bool isGround = true;
 	public bool getPistol = false;
     public bool getJackPack = true;
 	public GameObject bullet;
@@ -23,15 +23,28 @@ public class Player : MonoBehaviour {
     int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
     float camRayLength = 100f;          // The length of the ray from the camera into the scene.
 
+    //public AudioClip jumpClip;
+    AudioSource playerAudio;
+    public AudioClip shotClip;
+    public AudioClip jumpClip;
+    public AudioClip JackPackClip;
+    public AudioClip rubyClip;
+    public AudioClip diamondClip;
+    public AudioClip cupClip;
+    public AudioClip gumClip;
+    public AudioClip waterClip;
+    public AudioClip plantClip;
 
     // Use this for initialization
     void Start () {
         startPoint = transform.position;
         floorMask = LayerMask.GetMask("Floor");
         playerRigidbody = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     private void Awake() {
+        
         //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameController>().GetDoor();
     }
 
@@ -58,14 +71,7 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-            SceneManager.LoadScene("Fase_" + 1, LoadSceneMode.Single);
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            SceneManager.LoadScene("Fase_" + 2, LoadSceneMode.Single);
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            SceneManager.LoadScene("Fase_" + 3, LoadSceneMode.Single);
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            SceneManager.LoadScene("Fase_" + 4, LoadSceneMode.Single);
+
     }
 
     void JackPack()
@@ -79,7 +85,6 @@ public class Player : MonoBehaviour {
 
         if (Input.GetMouseButton(1))
             timerJackPack -= Time.deltaTime;
-
     }
 
     void Fire()
@@ -89,6 +94,8 @@ public class Player : MonoBehaviour {
             Instantiate(bullet, gun.transform.position, Quaternion.Euler(transform.rotation.eulerAngles));
             fireReady = false;
             timer = 0.5f;
+            playerAudio.clip = shotClip;
+            playerAudio.Play();
         }
 
         if (!fireReady)
@@ -111,7 +118,7 @@ public class Player : MonoBehaviour {
     }
 
     private void Jump()
-    {
+    {       
         if (jump)
             speed = 3f;
         else
@@ -119,19 +126,13 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space) && jump && isGround)
         {
-            playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
             jump = false;
+            playerAudio.clip = jumpClip;
+            playerAudio.Play();
+            playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);          
         }
     }
-
-    void OnCollisionStay(Collision collision) {
-        if (collision.gameObject.tag.Equals("Ground")) {
-            isGround = true;
-        }else {
-            isGround = false;
-        }
-    }
-
+    
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag.Equals("Ground")) {
             jump = true;
@@ -142,17 +143,53 @@ public class Player : MonoBehaviour {
         }
         if (collision.gameObject.tag.Equals("JackPack"))
         {
+            playerAudio.clip = cupClip;
+            playerAudio.Play();
             getJackPack = true;
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag.Equals("Ruby"))
+        {
+            playerAudio.clip = rubyClip;
+            playerAudio.Play();
+        }
+        if (collision.gameObject.tag.Equals("Diamond"))
+        {
+            playerAudio.clip = diamondClip;
+            playerAudio.Play();
+        }
+        if (collision.gameObject.tag.Equals("Cup"))
+        {
+            playerAudio.clip = cupClip;
+            playerAudio.Play();
+        }
+        if (collision.gameObject.tag.Equals("Gum"))
+        {
+            playerAudio.clip = gumClip;
+            playerAudio.Play();
+        }
+        if (collision.gameObject.tag.Equals("Water"))
+        {
+            playerAudio.clip = waterClip;
+            playerAudio.Play();
+        }
+        if (collision.gameObject.tag.Equals("Plant"))
+        {
+            playerAudio.clip = plantClip;
+            playerAudio.Play();
+        }
+        if (collision.gameObject.tag.Equals("Pistol"))
+        {
+            playerAudio.clip = cupClip;
+            playerAudio.Play();
+        }
+
     }
 
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag.Equals("Ground"))
-        {
             jump = false;
-        }
     }
 
     void Turning()

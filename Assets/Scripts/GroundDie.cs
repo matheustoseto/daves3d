@@ -9,10 +9,13 @@ public class GroundDie : MonoBehaviour {
     void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("Controller").GetComponent<GameController>();
+
     }
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag.Equals("Player"))
+        {
             gameController.RemoveLife();
+        }
     }
 }
