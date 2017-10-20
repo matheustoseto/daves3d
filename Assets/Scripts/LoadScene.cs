@@ -8,7 +8,6 @@ public class LoadScene : MonoBehaviour {
     public int newStage = 0;
     AudioSource playerAudio;
     public AudioClip gameOverClip;
-    private GameController gameController;
 
     // Use this for initialization
     void Start () {
@@ -20,11 +19,6 @@ public class LoadScene : MonoBehaviour {
 
 	}
 
-    void Awake()
-    {
-        gameController = GameObject.FindGameObjectWithTag("Controller").GetComponent<GameController>();
-    }
-
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag.Equals("Player") && getCup)
         {
@@ -32,7 +26,6 @@ public class LoadScene : MonoBehaviour {
             {
                 playerAudio.Play();
                 SceneManager.LoadScene("Fase_" + newStage, LoadSceneMode.Single);
-                gameController.currentStage++;
             }
             else
             {

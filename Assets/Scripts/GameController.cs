@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour {
     public int score = 0;
     public Font font;
 
-    public int currentStage;
+    public static int currentStage;
 
     // Use this for initialization
     void Start () {
@@ -29,33 +29,15 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SceneManager.LoadScene("Fase_" + 1, LoadSceneMode.Single);
-            currentStage = 1;
-        }            
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SceneManager.LoadScene("Fase_" + 2, LoadSceneMode.Single);
-            currentStage = 2;
-        }            
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SceneManager.LoadScene("Fase_" + 3, LoadSceneMode.Single);
-            currentStage = 3;
-        }           
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SceneManager.LoadScene("Fase_" + 4, LoadSceneMode.Single);
-            currentStage = 4;
-        }          
+        
     }
 
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
         door = GameObject.FindGameObjectWithTag("Door");
-        player = GameObject.FindGameObjectWithTag("Player");        
+        player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     private void OnLevelWasLoaded(int level)
@@ -66,7 +48,7 @@ public class GameController : MonoBehaviour {
         door = GameObject.FindGameObjectWithTag("Door");
         player = GameObject.FindGameObjectWithTag("Player");
         openDoor = false;
-        //currentStage++;
+        currentStage++;
     }
 
     public void OpenDoor() {

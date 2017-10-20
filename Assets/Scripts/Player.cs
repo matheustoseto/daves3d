@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    public bool jump = true;
-    public bool isGround = true;
+    private bool jump = true;
+    private bool isGround = false;
 	public bool getPistol = false;
     public bool getJackPack = true;
 	public GameObject bullet;
@@ -71,20 +71,40 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+            SceneManager.LoadScene("Fase_" + 1, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            SceneManager.LoadScene("Fase_" + 2, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            SceneManager.LoadScene("Fase_" + 3, LoadSceneMode.Single);
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            SceneManager.LoadScene("Fase_" + 4, LoadSceneMode.Single);
     }
 
     void JackPack()
     {
         if (Input.GetMouseButton(1) && getJackPack && timerJackPack < 0f && transform.position.y < 3f)
         {
+            if (!"Jack_Pack".Equals(playerAudio.clip.name))
+            {
+                playerAudio.clip = JackPackClip;
+            }
+            
             speed = 2;
             playerRigidbody.AddForce(new Vector3(0, 1f, 0), ForceMode.Impulse);
             timerJackPack = 0.05f;
         }
+        else if(Input.GetMouseButtonUp(1) && getJackPack)
+        {
+            playerAudio.Stop();
+        }
+        if (Input.GetMouseButton(1) && getJackPack)
+        {
+            if(!playerAudio.isPlaying)   
+                playerAudio.Play();
 
-        if (Input.GetMouseButton(1))
             timerJackPack -= Time.deltaTime;
+        }
     }
 
     void Fire()
@@ -118,24 +138,44 @@ public class Player : MonoBehaviour {
     }
 
     private void Jump()
-    {       
+    {
+        
         if (jump)
+        {
             speed = 3f;
+        }
+
         else
+        {
             speed = 2f;
+            
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && jump && isGround)
         {
-            jump = false;
             playerAudio.clip = jumpClip;
             playerAudio.Play();
-            playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);          
+            playerRigidbody.AddForce(new Vector3(0, 6.5f, 0), ForceMode.Impulse);
+            jump = false;
+        }
+    }
+
+    void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.tag.Equals("Ground")) {
+            isGround = true;
+           
+        }
+        else {
+            isGround = false;
         }
     }
     
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag.Equals("Ground")) {
             jump = true;
+            
+            //playerAudio.Stop();
+
         }
 		if (collision.gameObject.tag.Equals("Pistol")) {
             getPistol = true;
@@ -189,7 +229,14 @@ public class Player : MonoBehaviour {
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag.Equals("Ground"))
+        {
             jump = false;
+            if (Input.GetMouseButton(1) && getJackPack)
+            {
+                //playerAudio.clip = JackPackClip;
+                //playerAudio.Play();
+            }
+        }
     }
 
     void Turning()
