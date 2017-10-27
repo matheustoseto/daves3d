@@ -1,0 +1,40 @@
+Initialize engine version: 5.4.2f2 (b7e030c65c9b)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R7 M260 (ID=0x6900)
+    Vendor:   ATI
+    VRAM:     2039 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.057 seconds
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.517843 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1d30 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.587004 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 449.
+Total: 0.345018 ms (FindLiveObjects: 0.020132 ms CreateObjectMapping: 0.030396 ms MarkObjects: 0.282646 ms  DeleteObjects: 0.005921 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.786751 ms
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 350.
+Total: 0.515948 ms (FindLiveObjects: 0.017764 ms CreateObjectMapping: 0.029212 ms MarkObjects: 0.281067 ms  DeleteObjects: 0.187509 ms)
+

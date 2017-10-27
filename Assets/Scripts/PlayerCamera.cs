@@ -1,19 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class PlayerCamera : MonoBehaviour {
+public class PlayerCamera : MonoBehaviour
+{
 
-    public GameObject player;
-
-    private Vector3 offset;
-
-    void Start()
+    private void Start()
     {
-        offset = transform.position - player.transform.position;
+        transform.localEulerAngles = new Vector3(30, 0, 0);
     }
 
-    void LateUpdate()
-    {
-        transform.position = player.transform.position + offset;
-    }
 }

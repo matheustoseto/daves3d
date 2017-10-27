@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class ShowItens : MonoBehaviour {
+public class ShowItens : NetworkBehaviour
+{
 
     public GameObject pistolPrefab;
     public GameObject jetPackPrefab;

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
 
     public float runSpeed = 10;
 
@@ -19,7 +20,8 @@ public class PlayerController : MonoBehaviour {
     Animator animator;
     CharacterController controller;
 
-
+    private GameObject cameraObj;
+    private Vector3 offset = new Vector3(0, 15, -25);
 
     void Start()
     {
@@ -27,15 +29,25 @@ public class PlayerController : MonoBehaviour {
         controller = GetComponent<CharacterController>();
     }
 
+    void Awake()
+    {
+        cameraObj = Camera.main.gameObject;
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+            
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         velocityY += Time.deltaTime * gravity;
         Move(input);
         Animating(input);
+        MoveCamera();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -53,7 +65,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
-        {            
+        {
             animator.SetBool("IsJetPack", true);
         }
 
@@ -61,6 +73,7 @@ public class PlayerController : MonoBehaviour {
         {
             animator.SetBool("IsJetPack", false);
         }
+        
 
     }
 
@@ -115,9 +128,14 @@ public class PlayerController : MonoBehaviour {
         {
             animator.SetTrigger("IsShoot");
         }
-        else
+        /*else
         {
             return;
-        }
+        }*/
+    }
+
+    void MoveCamera()
+    {
+        cameraObj.transform.position = transform.position + offset;
     }
 }
