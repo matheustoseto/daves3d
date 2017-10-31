@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class ItemRotator : NetworkBehaviour
+public class ItemRotator : MonoBehaviour
 {
 
 	// Use this for initialization

@@ -15,13 +15,14 @@ public class PlayerController : NetworkBehaviour {
     public float speedSmoothTime = 0.1f;
     float speedSmoothVelocity;
     float currentSpeed;
-    float velocityY;
+    float velocityY;    
 
     Animator animator;
     CharacterController controller;
 
-    private GameObject cameraObj;
-    private Vector3 offset = new Vector3(0, 15, -25);
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+    
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class PlayerController : NetworkBehaviour {
 
     void Awake()
     {
-        cameraObj = Camera.main.gameObject;
+        
     }
 
     // Update is called once per frame
@@ -47,7 +48,7 @@ public class PlayerController : NetworkBehaviour {
         velocityY += Time.deltaTime * gravity;
         Move(input);
         Animating(input);
-        MoveCamera();
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -57,24 +58,7 @@ public class PlayerController : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.F))
         {
             Shoot();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            animator.SetTrigger("IsDead");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            animator.SetBool("IsJetPack", true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            animator.SetBool("IsJetPack", false);
-        }
-        
-
+        } 
     }
 
     void Move(Vector2 dir)
@@ -116,26 +100,35 @@ public class PlayerController : NetworkBehaviour {
     {
         if (controller.isGrounded)
         {
-            animator.SetTrigger("IsJumping");
+            CmdSetAnimTrigger("IsJumping");
+            //animator.SetTrigger("IsJumping");
             float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
             velocityY = jumpVelocity;
         }
     }
-
+    
     void Shoot()
     {
         if (controller.isGrounded)
         {
-            animator.SetTrigger("IsShoot");
+            CmdSetAnimTrigger("IsShoot");
         }
-        /*else
+    }  
+
+    //Set Trigger Network Animation
+    [Command]
+    public void CmdSetAnimTrigger(string triggerName)
+    {
+        if (!isServer)
         {
-            return;
-        }*/
+            animator.SetTrigger(triggerName);
+        }
+        RpcSetAnimTrigger(triggerName);
     }
 
-    void MoveCamera()
+    [ClientRpc]
+    public void RpcSetAnimTrigger(string triggerName)
     {
-        cameraObj.transform.position = transform.position + offset;
+        animator.SetTrigger(triggerName);
     }
 }

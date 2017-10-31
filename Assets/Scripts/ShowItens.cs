@@ -7,23 +7,52 @@ public class ShowItens : NetworkBehaviour
 
     public GameObject pistolPrefab;
     public GameObject jetPackPrefab;
+    
 
     public bool hasPistol;
 
     void Start()
     {
-        pistolPrefab.SetActive(false);
-        jetPackPrefab.SetActive(false);
+           
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (isLocalPlayer)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CmdActiveItens(1);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                CmdActiveItens(2);
+            }
+        }
+    }
+
+    [Command]
+    void CmdActiveItens(int item)
+    {
+        ActiveItens(item);
+        RpcActiveItens(item);
+    }
+
+    [ClientRpc]
+    void RpcActiveItens(int item)
+    {
+        ActiveItens(item);
+    }
+
+    void ActiveItens(int item)
+    {
+        if (item == 1)
         {
             pistolPrefab.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (item == 2)
         {
             jetPackPrefab.SetActive(true);
         }

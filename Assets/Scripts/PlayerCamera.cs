@@ -5,9 +5,22 @@ using UnityEngine.Networking;
 public class PlayerCamera : MonoBehaviour
 {
 
-    private void Start()
+    public GameObject player;
+
+    private Vector3 offset;
+
+    Quaternion rotation;
+
+    void Start()
     {
-        transform.localEulerAngles = new Vector3(30, 0, 0);
+        offset = transform.position - player.transform.position;
+        rotation = transform.rotation;
+    }
+
+    void LateUpdate()
+    {
+        transform.position = player.transform.position + offset;
+        transform.rotation = rotation;
     }
 
 }
