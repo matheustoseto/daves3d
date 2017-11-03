@@ -12,10 +12,10 @@ public class PlayerSync : NetworkBehaviour {
     Transform playerTransform;
 
     [SerializeField]
-    float lerpRate = 15;
+    float lerpRate = 20;
 
     private Vector3 lastPos;
-    private float threshold = 0.5f;
+    private float threshold = 1f;
     
     void Update ()
     {
@@ -37,7 +37,7 @@ public class PlayerSync : NetworkBehaviour {
         syncPos = pos;
     }
 
-    [ClientCallback]
+    [Client]
     void TransmitPosition()
     {
         //Verifica se o o jogador andou mais que a variavel Threshold
