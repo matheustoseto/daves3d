@@ -126,7 +126,7 @@ public class PlayerController : NetworkBehaviour {
         {
             animator.SetTrigger(triggerName);
         }
-        RpcSetAnimTrigger(triggerName);
+        RpcSetAnimTrigger(triggerName);        
     }
 
     [ClientRpc]
@@ -142,12 +142,33 @@ public class PlayerController : NetworkBehaviour {
         var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
         // Add velocity to the bullet
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
 
         // Spawn the bullet on the Clients
         NetworkServer.Spawn(bullet);
 
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 2.0f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("PickUp"))
+            CmdSetDestroy(other.gameObject);
+    }
+
+    [Command]
+    public void CmdSetDestroy(GameObject gameObject)
+    {
+        if (!isServer)
+            Destroy(gameObject);
+
+        RpcSetActive(gameObject);
+    }
+
+    [ClientRpc]
+    public void RpcSetActive(GameObject gameObject)
+    {
+        Destroy(gameObject);
     }
 }
