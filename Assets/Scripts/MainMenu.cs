@@ -4,17 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	void LoadStartGame()
+	public void LoadStartGame()
     {
         SceneManager.LoadScene("Single_fase_1", LoadSceneMode.Single);
     }
 
-    void LoadMultiPlayer()
+    public void LoadMultiPlayer()
     {
-        SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
+        SceneManager.LoadScene("LobbyMenu", LoadSceneMode.Single);
     }
 
-    void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }
