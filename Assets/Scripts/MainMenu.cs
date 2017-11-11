@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	void LoadStartGame()
+    {
+        SceneManager.LoadScene("Single_fase_1", LoadSceneMode.Single);
+    }
+
+    void LoadMultiPlayer()
+    {
+        SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
+    }
+
+    void QuitGame()
+    {
+        Application.Quit();
+    }
 }
