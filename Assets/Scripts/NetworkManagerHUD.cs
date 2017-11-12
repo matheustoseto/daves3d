@@ -14,6 +14,7 @@ public class NetworkManagerHUD : NetworkManager
     [SerializeField] public int offsetY;
     [SerializeField] public GameObject canvasMenu;
 
+    public string playerName = "";
     public List<Player> playerList = new List<Player>();
 
     private static NetworkManagerHUD instance;
@@ -36,7 +37,8 @@ public class NetworkManagerHUD : NetworkManager
     {
         SetIpAddress();
         SetPort();
-        HideCanvasMenu();
+        SetPlayerName();
+        HideCanvasMenu();       
         manager.StartHost();
     }
 
@@ -44,7 +46,8 @@ public class NetworkManagerHUD : NetworkManager
     {
         SetIpAddress();
         SetPort();
-        HideCanvasMenu();
+        SetPlayerName();
+        HideCanvasMenu();     
         manager.StartClient();
     }
 
@@ -52,6 +55,12 @@ public class NetworkManagerHUD : NetworkManager
     {
         string ip = GameObject.Find("InputIpAddress").transform.FindChild("Text").GetComponent<Text>().text;
         manager.networkAddress = ip;
+    }
+
+    public void SetPlayerName()
+    {
+        string name = GameObject.Find("InputPlayerName").transform.FindChild("Text").GetComponent<Text>().text;
+        playerName = name;
     }
 
     public void SetPort()

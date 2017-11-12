@@ -11,8 +11,6 @@ public class LobbyController : NetworkBehaviour
     [SyncVar]
     public int indexColor = 0;
    
-    private Vector3 autoLocalScale = new Vector3(1, 1, 1);
-    public GridLayoutGroup Grid;
     public GameObject playerLobby;
 
     private static LobbyController instance;
@@ -24,66 +22,59 @@ public class LobbyController : NetworkBehaviour
     }
 
     [Command]
-    public void CmdAddPlayer()
+    public void CmdAddPlayer(string playerName)
     {
-        AddPlayer();
+        AddPlayer(playerName);
 
         int i = 0;
         foreach (Player p in NetworkManagerHUD.Instance.playerList)
         {
             i++;
-            RpcAddPlayer(p, i);        
-        }       
+            if (GameObject.Find("LobbyPanel") != null && i > GameObject.Find("LobbyPanel").transform.childCount)
+            {
+                GameObject childObject = Instantiate(playerLobby) as GameObject;
+                childObject.transform.Find("PlayerName").GetComponent<InputField>().text = p.playerName;
+                childObject.transform.Find("Color").GetComponent<Image>().color = p.color;
+
+                NetworkServer.Spawn(childObject);  
+            }
+        }
+
+        foreach (Player p in NetworkManagerHUD.Instance.playerList)
+            RpcAddPlayer(p);
     }
 
     [ClientRpc]
-    public void RpcAddPlayer(Player p, int listLength)
+    public void RpcAddPlayer(Player p)
     {
-        if (GameObject.Find("LobbyPanel") != null && !isServer && listLength > GameObject.Find("LobbyPanel").transform.childCount)
-        {
-            GameObject childObject = Instantiate(playerLobby) as GameObject;
-            childObject.transform.Find("PlayerName").GetComponent<InputField>().text = p.playerName;
-            childObject.transform.Find("Color").GetComponent<Image>().color = p.color;
-            childObject.GetComponent<LobbyMenu>().playerIndex = p.index;
-
-            childObject.transform.SetParent(Grid.transform);
-            childObject.transform.localScale = autoLocalScale;
-            childObject.transform.localPosition = Vector3.zero;
-        }
+        GameObject.FindGameObjectsWithTag("PlayerLobby")[p.index].transform.Find("PlayerName").GetComponent<InputField>().text = p.playerName;
+        GameObject.FindGameObjectsWithTag("PlayerLobby")[p.index].transform.Find("Color").GetComponent<Image>().color = p.color;
     }
 
-    public void AddPlayer()
+    public void AddPlayer(string playerName)
     {
         if (SceneManager.GetActiveScene().name.Equals("LobbyMatch") && isServer)
         {
             Player player = new Player();
-            player.playerName = "Player" + (NetworkManagerHUD.Instance.playerList.Count <= 0 ? "1" :((int)NetworkManagerHUD.Instance.playerList.Count + 1).ToString());
+            player.playerName = playerName;
 
             indexColor++;
             player.color = GetPlayerColor(indexColor);
-            player.isRenderInPlayer = false;
             player.index = NetworkManagerHUD.Instance.playerList.Count;
 
             NetworkManagerHUD.Instance.playerList.Add(player);
-
-            if (GameObject.Find("LobbyPanel") != null)
-            {
-                GameObject childObject = Instantiate(playerLobby) as GameObject;
-                childObject.transform.Find("PlayerName").GetComponent<InputField>().text = player.playerName;
-                childObject.transform.Find("Color").GetComponent<Image>().color = player.color;
-                childObject.GetComponent<LobbyMenu>().playerIndex = player.index;
-
-                childObject.transform.SetParent(Grid.transform);
-                childObject.transform.localScale = autoLocalScale;
-                childObject.transform.localPosition = Vector3.zero;
-            }
         }
     }
 
-    public Player GetPlayer(int index)
+    public void BackLobbyMenu()
+    {
+        NetworkManagerHUD.Instance.CustomStopServer();
+    }
+
+    public Player GetPlayer(string playerName)
     {
         Player player = (from item in NetworkManagerHUD.Instance.playerList
-                         where item.index == index
+                         where item.playerName == playerName
                          select item).FirstOrDefault();
 
         return player;
@@ -96,6 +87,27 @@ public class LobbyController : NetworkBehaviour
     }
 
     public Color GetPlayerColor(int index)
+    {
+        for (int i = 1; i <= 4; i++)
+        {
+            Player player = (from item in NetworkManagerHUD.Instance.playerList
+                             where item.color == SwitchColor(index)
+                             select item).FirstOrDefault();
+
+            if (player == null)
+                return SwitchColor(index);
+
+            indexColor++;
+            if (indexColor > 4)
+                indexColor = 1;
+        }
+        if (index == indexColor)
+            indexColor++;
+
+        return SwitchColor(indexColor);
+    }
+
+    public Color SwitchColor(int index)
     {
         switch (index)
         {
@@ -122,25 +134,137 @@ public class LobbyController : NetworkBehaviour
         }
     }
 
-    public void ChangePlayerColor(int color, int index)
+    public Color ChangePlayerColor(int color, string playerName)
     {
-        Player player = GetPlayer(index);
+        Player player = GetPlayer(playerName);
         player.color = GetPlayerColor(color);
         UpdatePlayer(player);
+
+        return player.color;
     }
 
-    public void ReadyGame()
+    [Command]
+    public void CmdReadyGame()
     {
-        if (!isServer)
-            return;
+        if (isServer && ReadyGame())
+        {
+            SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+            RpcReadyGame();
+        }    
+    }
+
+    [ClientRpc]
+    public void RpcReadyGame()
+    {
+        SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+    }
+
+    public bool ReadyGame()
+    {
+        bool ready = true;
 
         foreach (Player p in NetworkManagerHUD.Instance.playerList)
         {
             if (!p.playerReady)
             {
+                ready = false;
                 break;
-            }
-            SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+            }     
         }
+        return ready;
+    }
+
+    [Command]
+    public void CmdSetReadyGame(string playerName)
+    {
+        bool ready = false;
+        if (isServer)
+            ready = SetReadyGame(playerName);
+
+        RpcSetReadyGame(playerName, ready);
+    }
+
+    [ClientRpc]
+    public void RpcSetReadyGame(string playerName, bool ready)
+    {
+        if (GameObject.FindGameObjectsWithTag("PlayerLobby") != null && !isServer)
+        {
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("PlayerLobby"))
+            {
+                if (playerName.Equals(go.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text))
+                {
+                    go.GetComponent<LobbyMenu>().readyButton.GetComponent<Image>().color = ready ? Color.green : Color.white;
+                }
+            }
+        }
+    }
+
+    public bool SetReadyGame(string playerName)
+    {
+        Player player = GetPlayer(playerName);
+
+        player.playerReady = !player.playerReady;
+
+        UpdatePlayer(player);
+
+        if (GameObject.FindGameObjectsWithTag("PlayerLobby") != null)
+        {
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("PlayerLobby"))
+            {
+                if (playerName.Equals(go.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text))
+                {
+                    go.GetComponent<LobbyMenu>().readyButton.GetComponent<Image>().color = player.playerReady ? Color.green : Color.red;
+                }
+            }
+        }
+
+        return player.playerReady;
+    }
+
+    [Command]
+    public void CmdChangeColor(string playerName)
+    {
+        Color color = Color.white;
+        if (isServer)
+            color = ChangeColor(playerName);
+
+        RpcChangeColor(playerName, color);
+    }
+
+    [ClientRpc]
+    public void RpcChangeColor(string playerName, Color color)
+    {
+        if (GameObject.FindGameObjectsWithTag("PlayerLobby") != null && !isServer)
+        {
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("PlayerLobby"))
+            {
+                if (playerName.Equals(go.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text))
+                {
+                    go.GetComponent<LobbyMenu>().colorButton.GetComponent<Image>().color = color;
+                }
+            }
+        }
+    }
+
+    public Color ChangeColor(string playerName)
+    {
+        indexColor++;
+        if (indexColor > 4)
+            indexColor = 1;
+
+        Color color = ChangePlayerColor(indexColor, playerName);
+
+        if (GameObject.FindGameObjectsWithTag("PlayerLobby") != null)
+        {
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("PlayerLobby"))
+            {
+                if (playerName.Equals(go.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text))
+                {
+                    go.GetComponent<LobbyMenu>().colorButton.GetComponent<Image>().color = color;
+                }
+            }
+        }
+
+        return color;
     }
 }

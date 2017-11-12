@@ -7,9 +7,15 @@ public class LobbyMenu : NetworkBehaviour
 {
     public GameObject readyButton;
     public GameObject colorButton;
-    public InputField playerName;
+    public GridLayoutGroup Grid;
 
-    public int playerIndex;
+    private void Start()
+    {
+        Grid = GameObject.FindGameObjectWithTag("LobbyPanel").GetComponent<GridLayoutGroup>();
+        gameObject.transform.SetParent(Grid.transform);
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        gameObject.transform.localPosition = Vector3.zero;
+    }
 
     public void BackLobbyMenu()
     {
@@ -18,29 +24,14 @@ public class LobbyMenu : NetworkBehaviour
 
     public void ReadyGame()
     {
-        Player player = LobbyController.Instance.GetPlayer(playerIndex);
-        player.playerName = playerName.text;
-        
-        if (!player.playerReady)
-        {
-            player.playerReady = true;
-            readyButton.GetComponent<Image>().color = Color.green;
-        } else {
-            player.playerReady = false;
-            readyButton.GetComponent<Image>().color = Color.white;
-        }
-        LobbyController.Instance.UpdatePlayer(player);
-        LobbyController.Instance.ReadyGame();
+        if (gameObject.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text.Equals(NetworkManagerHUD.Instance.playerName))
+            PlayerNetworkSetup.Instance.CmdReadyGame(NetworkManagerHUD.Instance.playerName);
     }
 
     public void ChangeColor()
-    {   
-        LobbyController.Instance.indexColor++;
-        if (LobbyController.Instance.indexColor > 4)
-            LobbyController.Instance.indexColor = 1;
-
-        LobbyController.Instance.ChangePlayerColor(LobbyController.Instance.indexColor, playerIndex);
-        colorButton.GetComponent<Image>().color = LobbyController.Instance.GetPlayerColor(LobbyController.Instance.indexColor);
+    {
+        if (gameObject.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text.Equals(NetworkManagerHUD.Instance.playerName))
+            PlayerNetworkSetup.Instance.CmdChangeColor(NetworkManagerHUD.Instance.playerName);
     }
 
 }

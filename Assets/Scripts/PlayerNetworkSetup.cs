@@ -8,18 +8,37 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     [SerializeField] Camera playerCam;
     [SerializeField] AudioListener playerAudio;
 
+    private static PlayerNetworkSetup instance;
+    public static PlayerNetworkSetup Instance { get { return instance; } }
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
 
         if (isLocalPlayer)
-            CmdAddPlayer();
+        {
+            instance = this;
+            CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
+        }       
     }
 
     [Command]
-    public void CmdAddPlayer()
+    public void CmdAddPlayer(string playerName)
     {
-        LobbyController.Instance.CmdAddPlayer();
+        LobbyController.Instance.CmdAddPlayer(playerName);
+    }
+
+    [Command]
+    public void CmdReadyGame(string playerName)
+    {
+        LobbyController.Instance.CmdSetReadyGame(playerName);
+        LobbyController.Instance.CmdReadyGame();
+    }
+
+    [Command]
+    public void CmdChangeColor(string playerName)
+    {
+        LobbyController.Instance.CmdChangeColor(playerName);
     }
 
     private void OnLevelWasLoaded(int level)
