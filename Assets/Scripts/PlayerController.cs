@@ -28,6 +28,7 @@ public class PlayerController : NetworkBehaviour {
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Awake()

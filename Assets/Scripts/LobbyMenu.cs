@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class LobbyMenu : NetworkBehaviour
 {
     public GameObject readyButton;
-    public bool readyPlayerGame = false;
+    public GameObject colorButton;
+    public InputField playerName;
 
-    private void Update()
-    {
-        
-    }
+    public int playerIndex;
 
     public void BackLobbyMenu()
     {
@@ -20,14 +18,29 @@ public class LobbyMenu : NetworkBehaviour
 
     public void ReadyGame()
     {
-        if (!readyPlayerGame)
+        Player player = LobbyController.Instance.GetPlayer(playerIndex);
+        player.playerName = playerName.text;
+        
+        if (!player.playerReady)
         {
-            readyPlayerGame = true;
+            player.playerReady = true;
             readyButton.GetComponent<Image>().color = Color.green;
         } else {
-            readyPlayerGame = false;
-            readyButton.GetComponent<Image>().color = Color.red;
+            player.playerReady = false;
+            readyButton.GetComponent<Image>().color = Color.white;
         }
-        
+        LobbyController.Instance.UpdatePlayer(player);
+        LobbyController.Instance.ReadyGame();
     }
+
+    public void ChangeColor()
+    {   
+        LobbyController.Instance.indexColor++;
+        if (LobbyController.Instance.indexColor > 4)
+            LobbyController.Instance.indexColor = 1;
+
+        LobbyController.Instance.ChangePlayerColor(LobbyController.Instance.indexColor, playerIndex);
+        colorButton.GetComponent<Image>().color = LobbyController.Instance.GetPlayerColor(LobbyController.Instance.indexColor);
+    }
+
 }

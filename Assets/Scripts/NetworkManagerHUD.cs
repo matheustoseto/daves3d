@@ -4,12 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Collections.Generic;
-
-public class Player
-{
-    public string name;
-    public Color color;
-}
+using System.Linq;
 
 public class NetworkManagerHUD : NetworkManager
 {
@@ -18,10 +13,8 @@ public class NetworkManagerHUD : NetworkManager
     [SerializeField] public int offsetX;
     [SerializeField] public int offsetY;
     [SerializeField] public GameObject canvasMenu;
-    [SerializeField] public GameObject playerLobby;
-    [SerializeField] public List<Player> playerList = new List<Player>();
 
-    bool showServer = false;
+    public List<Player> playerList = new List<Player>();
 
     private static NetworkManagerHUD instance;
     public static NetworkManagerHUD Instance { get { return instance; } }
@@ -86,52 +79,7 @@ public class NetworkManagerHUD : NetworkManager
     {
         manager.StopHost();
         ShowCanvasMenu();
-    }
-
-    public Color GetPlayerColor(int index)
-    {
-        switch (index)
-        {
-            case 1:
-                {
-                    return Color.red;
-                }
-            case 2:
-                {
-                    return Color.green;
-                }
-            case 3:
-                {
-                    return Color.black;
-                }
-            case 4:
-                {
-                    return Color.blue;
-                }
-            default:
-                {
-                    return Color.red;
-                }
-        }
-    }
-
-    void OnLevelWasLoaded(int level)
-    {
-        if (SceneManager.GetActiveScene().name.Equals("LobbyMatch"))
-        {
-            Player player = new Player();
-            player.name = "Player" + (playerList.Count <= 0 ? "1" : playerList.Count.ToString());
-            int index = playerList.Count <= 0 ? 1 : playerList.Count;
-            player.color = GetPlayerColor(index);
-
-            playerList.Add(player);
-
-            playerLobby.transform.FindChild("InputPlayeName").transform.FindChild("Text").GetComponent<Text>().text = player.name;
-            playerLobby.transform.FindChild("Color").GetComponent<Image>().color = player.color;
-
-            GameObject.Find("LobbyPanel").transform.parent = playerLobby.transform;
-        }
-            
+        Destroy(gameObject);
     }
 
     void OnGUI()
@@ -139,10 +87,7 @@ public class NetworkManagerHUD : NetworkManager
         if (!showGUI)
             return;
 
-        int xpos = 10 + offsetX;
-        int ypos = 40 + offsetY;
-        int spacing = 24;
-
+        /*
         if (NetworkServer.active)
         {
             GUI.Label(new Rect(xpos, ypos, 300, 20), "Server: port=" + manager.networkPort);
@@ -153,9 +98,10 @@ public class NetworkManagerHUD : NetworkManager
             GUI.Label(new Rect(xpos, ypos, 300, 20), "Client: address=" + manager.networkAddress + " port=" + manager.networkPort);
             ypos += spacing;
         }
-
+        */
         if (NetworkClient.active && !ClientScene.ready)
         {
+            /*
             if (GUI.Button(new Rect(xpos, ypos, 200, 20), "Client Ready"))
             {
                 ClientScene.Ready(manager.client.connection);
@@ -166,15 +112,18 @@ public class NetworkManagerHUD : NetworkManager
                 }
             }
             ypos += spacing;
+            */
         }
 
         if (NetworkServer.active || NetworkClient.active)
         {
+            /*
             if (GUI.Button(new Rect(xpos, ypos, 200, 20), "Stop (X)"))
             {
                 CustomStopServer();
             }
             ypos += spacing;
+            */
         }
     }
 }
