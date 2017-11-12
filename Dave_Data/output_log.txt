@@ -16,7 +16,7 @@ Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dl
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.040 seconds
+- Completed reload, in  0.039 seconds
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
@@ -41,34 +41,76 @@ desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.096271 ms
+UnloadTime: 0.610594 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 391c -> priority: 1 
+  Thread -> id: 4728 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.234912 ms
+UnloadTime: 8.306681 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 456.
-Total: 0.263828 ms (FindLiveObjects: 0.015358 ms CreateObjectMapping: 0.014676 ms MarkObjects: 0.226285 ms  DeleteObjects: 0.003413 ms)
+Total: 0.423900 ms (FindLiveObjects: 0.021160 ms CreateObjectMapping: 0.018771 ms MarkObjects: 0.369633 ms  DeleteObjects: 0.004436 ms)
 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.290450 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 543.
-Total: 0.462468 ms (FindLiveObjects: 0.019454 ms CreateObjectMapping: 0.019795 ms MarkObjects: 0.418781 ms  DeleteObjects: 0.004095 ms)
-
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.545452 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 910.
-Total: 0.668616 ms (FindLiveObjects: 0.053584 ms CreateObjectMapping: 0.036860 ms MarkObjects: 0.571344 ms  DeleteObjects: 0.005802 ms)
-
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.307174 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 910.
-Total: 0.625953 ms (FindLiveObjects: 0.048124 ms CreateObjectMapping: 0.037543 ms MarkObjects: 0.530729 ms  DeleteObjects: 0.008532 ms)
-
-NetworkWriter Gum (UnityEngine.GameObject) has no NetworkIdentity
+Network configuration mismatch detected. The number of networked scripts on the client does not match the number of networked scripts on the server. This could be caused by lazy loading of scripts on the client. This warning can be disabled by the checkbox in NetworkManager Script CRC Check.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+CRC Local Dump PlayerController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump ShowItens : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerNetworkSetup : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerSync : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerSyncRotation : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump LobbyController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerSyncRotation : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump ShowItens : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerNetworkSetup : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerSync : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump LobbyController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+UnloadTime: 0.290791 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 543.
+Total: 0.384650 ms (FindLiveObjects: 0.013652 ms CreateObjectMapping: 0.043687 ms MarkObjects: 0.323557 ms  DeleteObjects: 0.002730 ms)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.467587 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 910.
+Total: 0.534824 ms (FindLiveObjects: 0.040615 ms CreateObjectMapping: 0.039591 ms MarkObjects: 0.448816 ms  DeleteObjects: 0.004778 ms)
 
