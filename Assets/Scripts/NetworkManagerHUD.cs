@@ -9,10 +9,7 @@ using System.Linq;
 public class NetworkManagerHUD : NetworkManager
 {
     private NetworkManager manager;
-    [SerializeField] public bool showGUI = true;
-    [SerializeField] public int offsetX;
-    [SerializeField] public int offsetY;
-    [SerializeField] public GameObject canvasMenu;
+    public GameObject canvasMenu;
 
     public string playerName = "";
     public List<Player> playerList = new List<Player>();
@@ -25,12 +22,6 @@ public class NetworkManagerHUD : NetworkManager
         DontDestroyOnLoad(gameObject);
         manager = GetComponent<NetworkManager>();
         instance = this;
-    }
-
-    void Update()
-    {
-        if (!showGUI)
-            return;
     }
 
     public void CustomStartHost()
@@ -89,50 +80,5 @@ public class NetworkManagerHUD : NetworkManager
         manager.StopHost();
         ShowCanvasMenu();
         Destroy(gameObject);
-    }
-
-    void OnGUI()
-    {
-        if (!showGUI)
-            return;
-
-        /*
-        if (NetworkServer.active)
-        {
-            GUI.Label(new Rect(xpos, ypos, 300, 20), "Server: port=" + manager.networkPort);
-            ypos += spacing;
-        }
-        if (NetworkClient.active)
-        {
-            GUI.Label(new Rect(xpos, ypos, 300, 20), "Client: address=" + manager.networkAddress + " port=" + manager.networkPort);
-            ypos += spacing;
-        }
-        */
-        if (NetworkClient.active && !ClientScene.ready)
-        {
-            /*
-            if (GUI.Button(new Rect(xpos, ypos, 200, 20), "Client Ready"))
-            {
-                ClientScene.Ready(manager.client.connection);
-
-                if (ClientScene.localPlayers.Count == 0)
-                {
-                    ClientScene.AddPlayer(0);
-                }
-            }
-            ypos += spacing;
-            */
-        }
-
-        if (NetworkServer.active || NetworkClient.active)
-        {
-            /*
-            if (GUI.Button(new Rect(xpos, ypos, 200, 20), "Stop (X)"))
-            {
-                CustomStopServer();
-            }
-            ypos += spacing;
-            */
-        }
     }
 }

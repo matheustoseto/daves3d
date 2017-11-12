@@ -49,9 +49,8 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
             GetComponent<CharacterController>().enabled = true;
             GetComponent<PlayerController>().enabled = true;
-            GetComponent<PlayerSync>().enabled = true;
-            GetComponent<PlayerSyncRotation>().enabled = true;
             GetComponent<ShowItens>().enabled = true;
+            GetComponent<MultiGameController>().enabled = true;
             playerCam.enabled = true;
             playerAudio.enabled = true;
         }

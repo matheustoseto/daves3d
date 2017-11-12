@@ -22,13 +22,19 @@ public class PlayerController : NetworkBehaviour {
 
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    
+
+    public bool hasPistol = false;
+    public bool hasJetPack = false;
+
+    public Vector3 startPoint;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         DontDestroyOnLoad(gameObject);
+        startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+        transform.position = startPoint;
     }
 
     void Awake()

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Score : MonoBehaviour
+public class ScoreMulti : NetworkBehaviour
 {
     public int points = 10;
 
