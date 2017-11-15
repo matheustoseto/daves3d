@@ -6,7 +6,9 @@ public class SingleGameController : MonoBehaviour {
 
     public GameObject player;
     public GameObject door;
-    public Material materialOpenDoor;
+    public GameObject portal;
+  
+
 
     public int Lifes = 3;
     public bool removeLife = false;
@@ -40,6 +42,8 @@ public class SingleGameController : MonoBehaviour {
     {
         DontDestroyOnLoad(gameObject);
         door = GameObject.FindGameObjectWithTag("Door");
+        portal = GameObject.FindGameObjectWithTag("Portal");
+        door.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     private void OnLevelWasLoaded(int level)
@@ -48,13 +52,15 @@ public class SingleGameController : MonoBehaviour {
             Destroy(gameObject);
 
         door = GameObject.FindGameObjectWithTag("Door");
+        portal = GameObject.FindGameObjectWithTag("Portal");
+        door.transform.GetChild(1).gameObject.SetActive(false);       
         openDoor = false;
         currentStage++;
     }
 
     public void OpenDoor()
     {
-        door.GetComponent<MeshRenderer>().material = materialOpenDoor;
+        portal.SetActive(true);
         openDoor = true;
     }
 
