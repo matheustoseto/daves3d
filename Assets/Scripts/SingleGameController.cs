@@ -42,7 +42,7 @@ public class SingleGameController : MonoBehaviour {
     {
         DontDestroyOnLoad(gameObject);
         door = GameObject.FindGameObjectWithTag("Door");
-        portal = GameObject.FindGameObjectWithTag("Portal");
+        portal = door.transform.GetChild(1).gameObject;
         door.transform.GetChild(1).gameObject.SetActive(false);
     }
 
@@ -52,7 +52,7 @@ public class SingleGameController : MonoBehaviour {
             Destroy(gameObject);
 
         door = GameObject.FindGameObjectWithTag("Door");
-        portal = GameObject.FindGameObjectWithTag("Portal");
+        portal = door.transform.GetChild(1).gameObject;
         door.transform.GetChild(1).gameObject.SetActive(false);       
         openDoor = false;
         currentStage++;
