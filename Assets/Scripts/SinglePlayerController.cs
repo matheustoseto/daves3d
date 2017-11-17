@@ -31,6 +31,9 @@ public class SinglePlayerController : MonoBehaviour {
     public GameObject pistolPrefab;
     public GameObject jetPackPrefab;
 
+    public AudioSource audioS;
+    public AudioClip audioPickUp;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -137,6 +140,14 @@ public class SinglePlayerController : MonoBehaviour {
             hasJetPack = true;
             Destroy(other.gameObject);
             jetPackPrefab.SetActive(true);
+        }
+
+        if (other.gameObject.tag.Equals("PickUp"))
+        {
+            audioS.clip = audioPickUp;
+            audioS.Play();
+            Debug.Log(gameObject.GetComponent<AudioSource>());
+            
         }
     }
 }
