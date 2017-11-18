@@ -13,12 +13,57 @@ public class LobbyController : NetworkBehaviour
 
     public GameObject playerLobby;
 
+    public string textBox = "";
+    public Text textPanel;
+    public InputField inputText;
+
     private static LobbyController instance;
     public static LobbyController Instance { get { return instance; } }
 
     void Start()
     {
         instance = this;      
+    }
+
+    private void FixedUpdate()
+    {
+        textPanel.text = textBox;
+    }
+
+    [Command]
+    public void CmdAddText(string playerName, string text)
+    {
+        ShowText(playerName, text);
+        RpcAddText(playerName, text);
+    }
+
+    [ClientRpc]
+    public void RpcAddText(string playerName, string text)
+    {
+        if(!isServer)
+            ShowText(playerName, text);
+    }
+
+    public void SendText()
+    {
+        string text = inputText.text;
+        inputText.text = "";
+        if (text != "")
+        {
+            PlayerNetworkSetup.Instance.CmdSendText(NetworkManagerHUD.Instance.playerName, text);
+        }
+    }
+
+    public void ShowText(string playerName, string text)
+    {
+        if(playerName == null)
+        {
+            textBox += text + "\n";
+        }
+        else
+        {
+            textBox += "[" + playerName + "] " + text + "\n";
+        }      
     }
 
     [Command]
@@ -63,6 +108,9 @@ public class LobbyController : NetworkBehaviour
             player.index = NetworkManagerHUD.Instance.playerList.Count;
 
             NetworkManagerHUD.Instance.playerList.Add(player);
+
+            ShowText(null, "Jogador " + playerName + " entrou na sala.");
+            RpcAddText(null, "Jogador " + playerName + " entrou na sala.");
         }
     }
 

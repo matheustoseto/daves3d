@@ -16,7 +16,7 @@ Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dl
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.040 seconds
+- Completed reload, in  0.039 seconds
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
@@ -47,30 +47,30 @@ desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.987405 ms
+UnloadTime: 1.278199 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2c30 -> priority: 1 
+  Thread -> id: 3aec -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 11.503116 ms
+UnloadTime: 4.860913 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 462.
-Total: 0.331751 ms (FindLiveObjects: 0.031741 ms CreateObjectMapping: 0.015017 ms MarkObjects: 0.277824 ms  DeleteObjects: 0.003071 ms)
+Total: 0.315368 ms (FindLiveObjects: 0.018089 ms CreateObjectMapping: 0.017748 ms MarkObjects: 0.270998 ms  DeleteObjects: 0.003754 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.248131 ms
+UnloadTime: 0.253933 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 522.
-Total: 0.396258 ms (FindLiveObjects: 0.018089 ms CreateObjectMapping: 0.019454 ms MarkObjects: 0.354619 ms  DeleteObjects: 0.003754 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 531.
+Total: 0.406839 ms (FindLiveObjects: 0.018430 ms CreateObjectMapping: 0.019454 ms MarkObjects: 0.365199 ms  DeleteObjects: 0.003413 ms)
 
 Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.525681 ms
+UnloadTime: 3.822312 ms
 
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 872.
-Total: 0.583978 ms (FindLiveObjects: 0.047100 ms CreateObjectMapping: 0.037543 ms MarkObjects: 0.492849 ms  DeleteObjects: 0.005460 ms)
+Total: 0.660772 ms (FindLiveObjects: 0.148469 ms CreateObjectMapping: 0.049148 ms MarkObjects: 0.458035 ms  DeleteObjects: 0.004095 ms)
 
 Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.273046 ms
+UnloadTime: 0.262466 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 872.
-Total: 0.567937 ms (FindLiveObjects: 0.043004 ms CreateObjectMapping: 0.037543 ms MarkObjects: 0.477490 ms  DeleteObjects: 0.009215 ms)
+Total: 0.491484 ms (FindLiveObjects: 0.049489 ms CreateObjectMapping: 0.031400 ms MarkObjects: 0.402061 ms  DeleteObjects: 0.007850 ms)
 

@@ -49,6 +49,12 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     }
 
     [Command]
+    public void CmdSendText(string playerName, string txt)
+    {
+        LobbyController.Instance.CmdAddText(playerName, txt);
+    }
+
+    [Command]
     public void CmdAddPlayer(string playerName)
     {
         LobbyController.Instance.CmdAddPlayer(playerName);
