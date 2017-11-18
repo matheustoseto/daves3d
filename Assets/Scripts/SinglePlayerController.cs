@@ -41,8 +41,11 @@ public class SinglePlayerController : MonoBehaviour {
 
     void OnLevelWasLoaded(int level)
     {
-        startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-        transform.position = startPoint;
+        if (GameObject.FindGameObjectWithTag("StartPoint"))
+        {
+            startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+            transform.position = startPoint;
+        }
     }
 
     void Update()

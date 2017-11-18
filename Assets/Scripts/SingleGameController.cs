@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SingleGameController : MonoBehaviour {
 
@@ -25,6 +26,9 @@ public class SingleGameController : MonoBehaviour {
     public Font font;
 
     public static int currentStage;
+
+    public Text scoreGameOver;
+    public Text levelGameOver;
 
     private static SingleGameController instance = null;
 
@@ -52,11 +56,28 @@ public class SingleGameController : MonoBehaviour {
         if (SceneManager.GetActiveScene().name.Equals("Menu"))
             Destroy(gameObject);
 
-        door = GameObject.FindGameObjectWithTag("Door");
-        portal = door.transform.GetChild(1).gameObject;
-        door.transform.GetChild(1).gameObject.SetActive(false);       
-        openDoor = false;
-        currentStage++;
+        if (GameObject.FindGameObjectWithTag("Door"))
+        {
+            door = GameObject.FindGameObjectWithTag("Door");
+            portal = door.transform.GetChild(1).gameObject;
+            portal.SetActive(false);
+        }
+
+        if (SceneManager.GetActiveScene().name.Equals("Single_GameOver"))
+        {
+            scoreGameOver = GameObject.Find("Score").GetComponent<Text>();
+            levelGameOver = GameObject.Find("Level").GetComponent<Text>();
+
+            scoreGameOver.text = score.ToString(fmt);
+            levelGameOver.text = currentStage.ToString();
+
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            openDoor = false;
+            currentStage++;
+        }
     }
 
     public void OpenDoor()
@@ -98,13 +119,6 @@ public class SingleGameController : MonoBehaviour {
             }
                 
         }
-        else
-        {
-            GUI.Label(new Rect((Screen.width / 2) - (200 / 2), Screen.height / 2 - 100, 300, 100), "GameOver");
-
-            if (GUI.Button(new Rect((Screen.width / 2) - (500 / 2), Screen.height / 2, 500, 100), "Clique aqui para voltar ao menu!"))
-                SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-        }
 
         GUI.EndGroup();
     }
@@ -123,7 +137,7 @@ public class SingleGameController : MonoBehaviour {
             player.transform.position = player.GetComponent<SinglePlayerController>().startPoint;
 
             if (Lifes <= 0)
-                SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+                SceneManager.LoadScene("Single_GameOver", LoadSceneMode.Single);
             removeLife = false;
         }
     }
