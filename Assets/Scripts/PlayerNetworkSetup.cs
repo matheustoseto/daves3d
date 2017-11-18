@@ -11,6 +11,8 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     private static PlayerNetworkSetup instance;
     public static PlayerNetworkSetup Instance { get { return instance; } }
 
+    public bool isViewer = false;
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -18,8 +20,32 @@ public class PlayerNetworkSetup : NetworkBehaviour {
         if (isLocalPlayer)
         {
             instance = this;
-            CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
-        }       
+            CmdGameStart(NetworkManagerHUD.Instance.playerName);
+        }
+               
+    }
+
+    [Command]
+    public void CmdGameStart(string playerName)
+    {
+        RpcGameStart(playerName, NetworkManagerHUD.Instance.gameStart);
+    }
+
+    [ClientRpc]
+    public void RpcGameStart(string playerName, bool isReady)
+    {
+        if (playerName.Equals(NetworkManagerHUD.Instance.playerName))
+        {
+            if (isReady)
+            {
+                isViewer = true;
+                SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+            }
+            else
+            {
+                CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
+            }
+        }
     }
 
     [Command]
@@ -45,15 +71,33 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     {
         if (!SceneManager.GetActiveScene().name.Equals("LobbyMatch") && isLocalPlayer)
         {
-            GameObject.Find("Scene Camera").SetActive(false);
+            if (!isViewer)
+            {
+                GameObject.Find("Scene Camera").SetActive(false);
 
-            GetComponent<CharacterController>().enabled = true;
-            GetComponent<PlayerController>().enabled = true;
-            GetComponent<ShowItens>().enabled = true;
-            GetComponent<MultiGameController>().enabled = true;
-            playerCam.enabled = true;
-            playerAudio.enabled = true;
+                GetComponent<CharacterController>().enabled = true;
+                GetComponent<PlayerController>().enabled = true;
+                GetComponent<ShowItens>().enabled = true;
+                GetComponent<MultiGameController>().enabled = true;
+                playerCam.enabled = true;
+                playerAudio.enabled = true;
+            } else
+            {
+                CmdDeletePlayer(gameObject);
+            }         
         }
     }
 
+    [Command]
+    public void CmdDeletePlayer(GameObject player)
+    {
+        Destroy(player);
+        RpcDeletePlayer(player);
+    }
+
+    [ClientRpc]
+    public void RpcDeletePlayer(GameObject player)
+    {
+        Destroy(player);
+    }
 }

@@ -10,7 +10,7 @@ public class LobbyController : NetworkBehaviour
 {
     [SyncVar]
     public int indexColor = 0;
-   
+
     public GameObject playerLobby;
 
     private static LobbyController instance;
@@ -148,6 +148,7 @@ public class LobbyController : NetworkBehaviour
     {
         if (isServer && ReadyGame())
         {
+            NetworkManagerHUD.Instance.gameStart = true;
             SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
             RpcReadyGame();
         }    

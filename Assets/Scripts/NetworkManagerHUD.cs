@@ -17,6 +17,8 @@ public class NetworkManagerHUD : NetworkManager
     private static NetworkManagerHUD instance;
     public static NetworkManagerHUD Instance { get { return instance; } }
 
+    public bool gameStart = false;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -26,20 +28,24 @@ public class NetworkManagerHUD : NetworkManager
 
     public void CustomStartHost()
     {
-        SetIpAddress();
-        SetPort();
-        SetPlayerName();
-        HideCanvasMenu();       
-        manager.StartHost();
+        if (SetPlayerName())
+        {
+            SetIpAddress();
+            SetPort();
+            HideCanvasMenu();
+            manager.StartHost();
+        }
     }
 
     public void CustomJoinGame()
     {
-        SetIpAddress();
-        SetPort();
-        SetPlayerName();
-        HideCanvasMenu();     
-        manager.StartClient();
+        if (SetPlayerName())
+        {
+            SetIpAddress();
+            SetPort();
+            HideCanvasMenu();
+            manager.StartClient();
+        }
     }
 
     public void SetIpAddress()
@@ -48,10 +54,12 @@ public class NetworkManagerHUD : NetworkManager
         manager.networkAddress = ip;
     }
 
-    public void SetPlayerName()
+    public bool SetPlayerName()
     {
         string name = GameObject.Find("InputPlayerName").transform.FindChild("Text").GetComponent<Text>().text;
         playerName = name;
+
+        return playerName != "" ? true : false;
     }
 
     public void SetPort()
