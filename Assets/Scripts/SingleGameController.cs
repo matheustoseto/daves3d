@@ -8,14 +8,15 @@ public class SingleGameController : MonoBehaviour {
     public GameObject door;
     public GameObject portal;
   
-
-
     public int Lifes = 3;
     public bool removeLife = false;
     public Texture2D davesLife;
     public Texture2D openDoorTexture;
     public Texture2D gunTexture;
     public Texture2D jackpackTexture;
+
+    public Texture2D jackPackBar_1;
+    public Texture2D jackPackBar_2;
 
     public bool openDoor = false;
 
@@ -89,7 +90,13 @@ public class SingleGameController : MonoBehaviour {
                 GUI.Label(new Rect(Screen.width - 271, Screen.height - 45, 400, 100), openDoorTexture);
 
             if (player.GetComponent<SinglePlayerController>().hasJetPack)
-                GUI.Label(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 45, 300, 50), jackpackTexture);
+            {
+                GUI.Label(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 50, 300, 50), jackpackTexture);
+
+                GUI.DrawTexture(new Rect((Screen.width / 2) - (340 / 2), Screen.height - 20, 300/50* player.GetComponent<SinglePlayerController>().maxJetpack, 15), jackPackBar_2);
+                //GUI.DrawTexture(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 45, 300, 50), jackPackBar_1);
+            }
+                
         }
         else
         {

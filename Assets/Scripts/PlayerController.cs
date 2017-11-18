@@ -15,7 +15,7 @@ public class PlayerController : NetworkBehaviour {
     public float speedSmoothTime = 0.1f;
     float speedSmoothVelocity;
     float currentSpeed;
-    float velocityY;    
+    float velocityY;
 
     public Animator animator;
     CharacterController controller;
@@ -55,7 +55,6 @@ public class PlayerController : NetworkBehaviour {
         Move(input);
         Animating(input);
 
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
@@ -66,7 +65,8 @@ public class PlayerController : NetworkBehaviour {
             Shoot();
         }
 
-        
+        if (Input.GetMouseButton(1))
+            JetPack();
     }
 
     void Move(Vector2 dir)
@@ -122,7 +122,16 @@ public class PlayerController : NetworkBehaviour {
             CmdSetAnimTrigger("IsShoot");
             CmdFire();
         }
-    }  
+    }
+
+    void JetPack()
+    {
+        if (hasJetPack)
+        {
+            float jumpVelocity = Mathf.Sqrt(-1 * gravity * 2);
+            velocityY = jumpVelocity;
+        }
+    }
 
     //Set Trigger Network Animation
     [Command]

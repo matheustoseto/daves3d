@@ -4,10 +4,10 @@ using System.Collections;
 public class SinglePlayerController : MonoBehaviour {
 
     public float runSpeed = 10;
+    public float maxJetpack = 50f;
 
     public float gravity = -12;
     public float jumpHeight = 1;
-    public float limitJetPack = 5f;
 
     public float turnSmoothTime = 0.2f;
     float turnSmoothVelocity;
@@ -101,10 +101,15 @@ public class SinglePlayerController : MonoBehaviour {
 
     void JetPack()
     {
-        if (hasJetPack && transform.position.y < limitJetPack)
+        if (hasJetPack)
         {
             float jumpVelocity = Mathf.Sqrt(-1 * gravity * 2);
             velocityY = jumpVelocity;
+
+            maxJetpack -= Time.deltaTime * 5f;
+
+            if (maxJetpack < 0)
+                hasJetPack = false;
         }
     }
 
