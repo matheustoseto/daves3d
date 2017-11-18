@@ -21,6 +21,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
     public GameObject hat;
     public TextMesh textPlayerName;
+    public GameObject goPlayerName;
 
     private void Start()
     {
@@ -32,6 +33,11 @@ public class PlayerNetworkSetup : NetworkBehaviour {
             CmdGameStart(NetworkManagerHUD.Instance.playerName);
         }
                
+    }
+
+    private void FixedUpdate()
+    {
+        goPlayerName.transform.localEulerAngles = transform.localEulerAngles;
     }
 
     [Command]
@@ -104,9 +110,13 @@ public class PlayerNetworkSetup : NetworkBehaviour {
                 GetComponent<PlayerController>().enabled = true;
                 GetComponent<ShowItens>().enabled = true;
                 GetComponent<MultiGameController>().enabled = true;
-                gameObject.transform.Find("PlayerName").gameObject.SetActive(true);
+                //goPlayerName.SetActive(true);
                 playerCam.enabled = true;
                 playerAudio.enabled = true;
+
+                if (isServer)
+                    NetworkServer.SpawnObjects();
+
             } else
             {
                 CmdDeletePlayer(gameObject);

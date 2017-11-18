@@ -139,7 +139,7 @@ public class MultiGameController : NetworkBehaviour
 
     void AddScoreAndDestroy(GameObject obj)
     {
-        AddScore(obj.GetComponent<Score>().points);
+        AddScore(obj.GetComponent<ScoreMulti>().points);
         Destroy(obj);
     }
 }
