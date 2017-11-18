@@ -295,6 +295,23 @@ public class LobbyController : NetworkBehaviour
         }
     }
 
+    public Material getMaterialByColor(Color color)
+    {
+        if (Color.red.Equals(color))
+            return PlayerNetworkSetup.Instance.hatRed;
+
+        if (Color.blue.Equals(color))
+            return PlayerNetworkSetup.Instance.hatBlue;
+
+        if (Color.black.Equals(color))
+            return PlayerNetworkSetup.Instance.hatBlack;
+
+        if (Color.green.Equals(color))
+            return PlayerNetworkSetup.Instance.hatGreen;
+
+        return PlayerNetworkSetup.Instance.hatRed;
+    }
+
     public Color ChangeColor(string playerName)
     {
         indexColor++;

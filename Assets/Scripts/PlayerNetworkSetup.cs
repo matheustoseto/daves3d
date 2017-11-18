@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerNetworkSetup : NetworkBehaviour {
 
@@ -12,6 +13,14 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     public static PlayerNetworkSetup Instance { get { return instance; } }
 
     public bool isViewer = false;
+
+    public Material hatBlue;
+    public Material hatRed;
+    public Material hatGreen;
+    public Material hatBlack;
+
+    public GameObject hat;
+    public TextMesh textPlayerName;
 
     private void Start()
     {
@@ -63,6 +72,16 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     [Command]
     public void CmdReadyGame(string playerName)
     {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("PlayerLobby"))
+        {
+            if (playerName.Equals(go.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text))
+            {
+                Color color = go.GetComponent<LobbyMenu>().colorButton.GetComponent<Image>().color;
+                Material hatMaterial = LobbyController.Instance.getMaterialByColor(color);
+                hat.GetComponent<Renderer>().material = hatMaterial;
+                textPlayerName.text = playerName;
+            }
+        }
         LobbyController.Instance.CmdSetReadyGame(playerName);
         LobbyController.Instance.CmdReadyGame();
     }
@@ -85,6 +104,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
                 GetComponent<PlayerController>().enabled = true;
                 GetComponent<ShowItens>().enabled = true;
                 GetComponent<MultiGameController>().enabled = true;
+                gameObject.transform.Find("PlayerName").gameObject.SetActive(true);
                 playerCam.enabled = true;
                 playerAudio.enabled = true;
             } else
