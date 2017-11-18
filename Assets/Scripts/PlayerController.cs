@@ -17,7 +17,7 @@ public class PlayerController : NetworkBehaviour {
     float currentSpeed;
     float velocityY;    
 
-    Animator animator;
+    public Animator animator;
     CharacterController controller;
 
     public GameObject bulletPrefab;
@@ -30,7 +30,6 @@ public class PlayerController : NetworkBehaviour {
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         DontDestroyOnLoad(gameObject);
         startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
@@ -139,7 +138,8 @@ public class PlayerController : NetworkBehaviour {
     [ClientRpc]
     public void RpcSetAnimTrigger(string triggerName)
     {
-        animator.SetTrigger(triggerName);
+        if(animator != null)
+            animator.SetTrigger(triggerName);
     }
 
     [Command]
