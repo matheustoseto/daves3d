@@ -139,6 +139,7 @@ public class SinglePlayerController : MonoBehaviour {
             hasPistol = true;
             Destroy(other.gameObject);
             pistolPrefab.SetActive(true);
+            maxJetpack = 50f;
         }
         if (other.gameObject.tag.Equals("JetPack"))
         {

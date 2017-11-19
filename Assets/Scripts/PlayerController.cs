@@ -196,6 +196,7 @@ public class PlayerController : NetworkBehaviour {
             hasJetPack = true;
             Destroy(other.gameObject);
             CmdActiveItens(2);
+            maxJetpack = 50f;
         }
     }
 
