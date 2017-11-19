@@ -117,7 +117,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
                 GetComponent<CharacterController>().enabled = true;
                 GetComponent<PlayerController>().enabled = true;
-                GetComponent<ShowItens>().enabled = true;
+                //GetComponent<ShowItens>().enabled = true;
                 GetComponent<MultiGameController>().enabled = true;
                 //goPlayerName.SetActive(true);
                 playerCam.enabled = true;
