@@ -46,9 +46,12 @@ public class SingleGameController : MonoBehaviour {
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        door = GameObject.FindGameObjectWithTag("Door");
-        portal = door.transform.GetChild(1).gameObject;
-        door.transform.GetChild(1).gameObject.SetActive(false);
+        if (GameObject.FindGameObjectWithTag("Door"))
+        {
+            door = GameObject.FindGameObjectWithTag("Door");
+            portal = door.transform.GetChild(1).gameObject;
+            portal.SetActive(false);
+        }
     }
 
     private void OnLevelWasLoaded(int level)

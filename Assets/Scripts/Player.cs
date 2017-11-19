@@ -8,4 +8,5 @@ public class Player
     public string playerName;
     public Color color;
     public bool playerReady = false;
+    public int score;
 }

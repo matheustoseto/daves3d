@@ -2,11 +2,13 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class MultiGameController : NetworkBehaviour
 {
     public GameObject player;
     public GameObject door;
+    public GameObject portal;
     public Material materialOpenDoor;
 
     public int Lifes = 3;
@@ -40,7 +42,13 @@ public class MultiGameController : NetworkBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        door = GameObject.FindGameObjectWithTag("Door");
+
+        if (GameObject.FindGameObjectWithTag("Door"))
+        {
+            door = GameObject.FindGameObjectWithTag("Door");
+            portal = door.transform.GetChild(1).gameObject;
+            portal.SetActive(false);
+        }
     }
 
     private void OnLevelWasLoaded(int level)
@@ -48,9 +56,27 @@ public class MultiGameController : NetworkBehaviour
         if (SceneManager.GetActiveScene().name.Equals("Menu"))
             Destroy(gameObject);
 
-        door = GameObject.FindGameObjectWithTag("Door");
-        openDoor = false;
-        currentStage++;
+        if (GameObject.FindGameObjectWithTag("Door"))
+        {
+            door = GameObject.FindGameObjectWithTag("Door");
+            portal = door.transform.GetChild(1).gameObject;
+            portal.SetActive(false);
+        }
+
+        if (SceneManager.GetActiveScene().name.Equals("Single_GameOver"))
+        {
+            foreach (Player playe in NetworkManagerHUD.Instance.playerList)
+            {
+                
+            }
+
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            openDoor = false;
+            currentStage++;
+        }
     }
 
     public void OpenDoor()
@@ -86,13 +112,6 @@ public class MultiGameController : NetworkBehaviour
             if (player.GetComponent<PlayerController>().hasJetPack)
                 GUI.Label(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 45, 300, 50), jackpackTexture);
         }
-        else
-        {
-            GUI.Label(new Rect((Screen.width / 2) - (200 / 2), Screen.height / 2 - 100, 300, 100), "GameOver");
-
-            if (GUI.Button(new Rect((Screen.width / 2) - (500 / 2), Screen.height / 2, 500, 100), "Clique aqui para voltar ao menu!"))
-                SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-        }
 
         GUI.EndGroup();
     }
@@ -111,7 +130,7 @@ public class MultiGameController : NetworkBehaviour
             player.transform.position = player.GetComponent<PlayerController>().startPoint;
 
             if (Lifes <= 0)
-                SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+                SceneManager.LoadScene("Multi_GameOver", LoadSceneMode.Single);
             removeLife = false;
         }
     }
