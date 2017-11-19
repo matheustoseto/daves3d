@@ -16,7 +16,7 @@ Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dl
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.040 seconds
+- Completed reload, in  0.038 seconds
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
@@ -47,39 +47,30 @@ desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.760766 ms
+UnloadTime: 2.017105 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 29cc -> priority: 1 
+  Thread -> id: 2588 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.172780 ms
+UnloadTime: 7.869783 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 469.
-Total: 0.357345 ms (FindLiveObjects: 0.016723 ms CreateObjectMapping: 0.015017 ms MarkObjects: 0.305808 ms  DeleteObjects: 0.003413 ms)
+Total: 0.511614 ms (FindLiveObjects: 0.032082 ms CreateObjectMapping: 0.030034 ms MarkObjects: 0.436186 ms  DeleteObjects: 0.006484 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.380553 ms
+UnloadTime: 0.424923 ms
 
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 538.
-Total: 0.591138 ms (FindLiveObjects: 0.027304 ms CreateObjectMapping: 0.029352 ms MarkObjects: 0.528679 ms  DeleteObjects: 0.005460 ms)
+Total: 0.723905 ms (FindLiveObjects: 0.034130 ms CreateObjectMapping: 0.036178 ms MarkObjects: 0.646088 ms  DeleteObjects: 0.006826 ms)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.163524 ms
+UnloadTime: 2.787086 ms
 
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1276.
-Total: 0.516733 ms (FindLiveObjects: 0.051195 ms CreateObjectMapping: 0.029693 ms MarkObjects: 0.431066 ms  DeleteObjects: 0.004436 ms)
+Total: 0.741653 ms (FindLiveObjects: 0.070649 ms CreateObjectMapping: 0.044369 ms MarkObjects: 0.618783 ms  DeleteObjects: 0.006826 ms)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.405810 ms
+UnloadTime: 0.560420 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1276.
-Total: 0.500010 ms (FindLiveObjects: 0.047099 ms CreateObjectMapping: 0.030376 ms MarkObjects: 0.414684 ms  DeleteObjects: 0.007508 ms)
-
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:49669}
-Server client disconnect error:1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-OnDisconnectError error:6
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Total: 0.441647 ms (FindLiveObjects: 0.046076 ms CreateObjectMapping: 0.025256 ms MarkObjects: 0.363147 ms  DeleteObjects: 0.006826 ms)
 

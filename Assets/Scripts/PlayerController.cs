@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class PlayerController : NetworkBehaviour {
 
     public float runSpeed = 10;
+    public float maxJetpack = 50f;
 
     public float gravity = -12;
     public float jumpHeight = 1;
@@ -27,6 +28,9 @@ public class PlayerController : NetworkBehaviour {
     public bool hasJetPack = false;
 
     public Vector3 startPoint;
+
+    public GameObject pistolPrefab;
+    public GameObject jetPackPrefab;
 
     void Start()
     {
@@ -134,6 +138,11 @@ public class PlayerController : NetworkBehaviour {
         {
             float jumpVelocity = Mathf.Sqrt(-1 * gravity * 2);
             velocityY = jumpVelocity;
+
+            maxJetpack -= Time.deltaTime * 5f;
+
+            if (maxJetpack < 0)
+                hasJetPack = false;
         }
     }
 
@@ -175,6 +184,41 @@ public class PlayerController : NetworkBehaviour {
     {
         if (other.gameObject.tag.Equals("PickUp"))
             CmdSetDestroy(other.gameObject);
+
+        if (other.gameObject.tag.Equals("Pistol"))
+        {
+            hasPistol = true;
+            Destroy(other.gameObject);
+            CmdActiveItens(1);
+        }
+        if (other.gameObject.tag.Equals("JetPack"))
+        {
+            hasJetPack = true;
+            Destroy(other.gameObject);
+            CmdActiveItens(2);
+        }
+    }
+
+    [Command]
+    void CmdActiveItens(int item)
+    {
+        ActiveItens(item);
+        RpcActiveItens(item);
+    }
+
+    [ClientRpc]
+    void RpcActiveItens(int item)
+    {
+        ActiveItens(item);
+    }
+
+    void ActiveItens(int item)
+    {
+        if (item == 1)
+            pistolPrefab.SetActive(true);
+
+        if (item == 2)
+            jetPackPrefab.SetActive(true);
     }
 
     [Command]

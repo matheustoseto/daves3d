@@ -26,6 +26,9 @@ public class MultiGameController : NetworkBehaviour
 
     public static int currentStage;
 
+    public Texture2D jackPackBar_1;
+    public Texture2D jackPackBar_2;
+
     private static MultiGameController instance = null;
 
     public static MultiGameController Instance
@@ -110,7 +113,11 @@ public class MultiGameController : NetworkBehaviour
                 GUI.Label(new Rect(Screen.width - 271, Screen.height - 45, 400, 100), openDoorTexture);
 
             if (player.GetComponent<PlayerController>().hasJetPack)
-                GUI.Label(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 45, 300, 50), jackpackTexture);
+            {
+                GUI.Label(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 50, 300, 50), jackpackTexture);
+                GUI.DrawTexture(new Rect((Screen.width / 2) - (340 / 2), Screen.height - 20, 300 / 50 * player.GetComponent<PlayerController>().maxJetpack, 15), jackPackBar_2);
+            }
+                
         }
 
         GUI.EndGroup();
