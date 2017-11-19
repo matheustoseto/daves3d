@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using System.Linq;
 
 public class MultiGameController : NetworkBehaviour
 {
@@ -28,6 +29,8 @@ public class MultiGameController : NetworkBehaviour
 
     public Texture2D jackPackBar_1;
     public Texture2D jackPackBar_2;
+
+    public GameObject ScoresPanel;
 
     private static MultiGameController instance = null;
 
@@ -66,12 +69,20 @@ public class MultiGameController : NetworkBehaviour
             portal.SetActive(false);
         }
 
-        if (SceneManager.GetActiveScene().name.Equals("Single_GameOver"))
+        if (SceneManager.GetActiveScene().name.Equals("Single_GameOver") && isServer)
         {
-            foreach (Player playe in NetworkManagerHUD.Instance.playerList)
+            foreach (Player p in NetworkManagerHUD.Instance.playerList)
             {
-                
+                GameObject childObject = Instantiate(ScoresPanel) as GameObject;
+                childObject.transform.Find("Score").GetComponent<Text>().text = p.score.ToString();
+                childObject.transform.Find("Level").GetComponent<Text>().text = currentStage.ToString();
+                childObject.transform.Find("Name").GetComponent<Text>().text = p.playerName;
+
+                NetworkServer.Spawn(childObject);
             }
+
+            foreach (Player p in NetworkManagerHUD.Instance.playerList)
+                RpcAddScorePanel(p);
 
             gameObject.SetActive(false);
         }
@@ -80,6 +91,29 @@ public class MultiGameController : NetworkBehaviour
             openDoor = false;
             currentStage++;
         }
+    }
+
+    [Command]
+    public void CmdLoadGameOverScene()
+    {
+        SceneManager.LoadScene("Multi_GameOver", LoadSceneMode.Single);
+        RpcLoadGameOverScene();
+    }
+
+    [ClientRpc]
+    public void RpcLoadGameOverScene()
+    {
+        SceneManager.LoadScene("Multi_GameOver", LoadSceneMode.Single);
+    }
+
+    [ClientRpc]
+    public void RpcAddScorePanel(Player p)
+    {
+        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Score").GetComponent<Text>().text = p.score.ToString();
+        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Level").GetComponent<Text>().text = currentStage.ToString();
+        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Name").GetComponent<Text>().text = p.playerName;
+
+        gameObject.SetActive(false);
     }
 
     public void OpenDoor()
@@ -123,9 +157,36 @@ public class MultiGameController : NetworkBehaviour
         GUI.EndGroup();
     }
 
+    public Player GetPlayer(string playerName)
+    {
+        Player player = (from item in NetworkManagerHUD.Instance.playerList
+                         where item.playerName == playerName
+                         select item).FirstOrDefault();
+
+        return player;
+    }
+
+    public void UpdatePlayer(Player p)
+    {
+        var obj = NetworkManagerHUD.Instance.playerList.FirstOrDefault(x => x.index == p.index);
+        if (obj != null) obj = p;
+    }
+
+    [Command]
+    public void CmdAddScore(string playerName, int score)
+    {
+        Player player = GetPlayer(playerName);
+
+        player.score = score;
+
+        UpdatePlayer(player);
+    }
+
     public void AddScore(int scr)
     {
         score += scr;
+
+        CmdAddScore(NetworkManagerHUD.Instance.playerName, scr);
     }
 
     public void RemoveLife()
@@ -137,7 +198,7 @@ public class MultiGameController : NetworkBehaviour
             player.transform.position = player.GetComponent<PlayerController>().startPoint;
 
             if (Lifes <= 0)
-                SceneManager.LoadScene("Multi_GameOver", LoadSceneMode.Single);
+                CmdLoadGameOverScene();
             removeLife = false;
         }
     }

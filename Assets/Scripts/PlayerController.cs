@@ -10,6 +10,8 @@ public class PlayerController : NetworkBehaviour {
     public float gravity = -12;
     public float jumpHeight = 1;
 
+    public float timerBullet = 0;
+
     public float turnSmoothTime = 0.2f;
     float turnSmoothVelocity;
 
@@ -63,15 +65,14 @@ public class PlayerController : NetworkBehaviour {
         Move(input);
         Animating(input);
 
+        if(timerBullet >= 0)
+            timerBullet -= Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             Jump();
-        }
 
         if (Input.GetKeyDown(KeyCode.F))
-        {
             Shoot();
-        }
 
         if (Input.GetMouseButton(1))
             JetPack();
@@ -125,10 +126,11 @@ public class PlayerController : NetworkBehaviour {
     
     void Shoot()
     {
-        if (controller.isGrounded)
+        if (controller.isGrounded && hasPistol && timerBullet < 0)
         {
             CmdSetAnimTrigger("IsShoot");
             CmdFire();
+            timerBullet = 0.5f;
         }
     }
 
