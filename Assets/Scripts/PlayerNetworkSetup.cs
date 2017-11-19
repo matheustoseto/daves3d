@@ -19,7 +19,6 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     public Material hatGreen;
     public Material hatBlack;
 
-    public GameObject hat;
     public TextMesh textPlayerName;
     public GameObject goPlayerName;
 
@@ -78,18 +77,28 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     [Command]
     public void CmdReadyGame(string playerName)
     {
+        int i = 0;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("PlayerLobby"))
         {
-            if (playerName.Equals(go.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text))
-            {
-                Color color = go.GetComponent<LobbyMenu>().colorButton.GetComponent<Image>().color;
-                Material hatMaterial = LobbyController.Instance.getMaterialByColor(color);
-                hat.GetComponent<Renderer>().material = hatMaterial;
-                textPlayerName.text = playerName;
-            }
+            Color color = go.GetComponent<LobbyMenu>().colorButton.GetComponent<Image>().color;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.Find("Sphere").GetComponent<Renderer>().material = LobbyController.Instance.getMaterialByColor(color);
+            i++;
         }
+        RpcSetHatColor();
         LobbyController.Instance.CmdSetReadyGame(playerName);
         LobbyController.Instance.CmdReadyGame();
+    }
+
+    [ClientRpc]
+    public void RpcSetHatColor()
+    {
+        int i = 0;
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("PlayerLobby"))
+        {
+            Color color = go.GetComponent<LobbyMenu>().colorButton.GetComponent<Image>().color;
+            GameObject.FindGameObjectsWithTag("Player")[i].transform.Find("Sphere").GetComponent<Renderer>().material = LobbyController.Instance.getMaterialByColor(color);
+            i++;
+        }
     }
 
     [Command]
@@ -114,8 +123,12 @@ public class PlayerNetworkSetup : NetworkBehaviour {
                 playerCam.enabled = true;
                 playerAudio.enabled = true;
 
-                if (isServer)
-                    NetworkServer.SpawnObjects();
+                //if (isServer)
+                //NetworkServer.SpawnObjects();
+
+                Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+                transform.position = startPoint;
+                GetComponent<PlayerController>().startPoint = startPoint;
 
             } else
             {

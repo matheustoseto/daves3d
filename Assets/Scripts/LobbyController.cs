@@ -56,7 +56,7 @@ public class LobbyController : NetworkBehaviour
 
     public void ShowText(string playerName, string text)
     {
-        if(playerName == null)
+        if(playerName == "")
         {
             textBox += text + "\n";
         }
@@ -109,8 +109,8 @@ public class LobbyController : NetworkBehaviour
 
             NetworkManagerHUD.Instance.playerList.Add(player);
 
-            ShowText(null, "Jogador " + playerName + " entrou na sala.");
-            RpcAddText(null, "Jogador " + playerName + " entrou na sala.");
+            ShowText("", "Jogador " + playerName + " entrou na sala.");
+            RpcAddText("", "Jogador " + playerName + " entrou na sala.");
         }
     }
 

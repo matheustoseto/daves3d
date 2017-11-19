@@ -2,23 +2,23 @@ Initialize engine version: 5.4.2f2 (b7e030c65c9b)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Radeon (TM) RX 480 Graphics (ID=0x67df)
-    Vendor:   ATI
+    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c82)
+    Vendor:   NVIDIA
     VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.121 seconds
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.040 seconds
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
@@ -43,166 +43,43 @@ Add a delegate to SceneManager.sceneLoaded instead to get notifications after sc
  
 (Filename:  Line: 375)
 
-desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
+desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.597934 ms
-Initialize engine version: 5.4.2f2 (b7e030c65c9b)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Radeon (TM) RX 480 Graphics (ID=0x67df)
-    Vendor:   ATI
-    VRAM:     3072 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.034 seconds
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
-OnLevelWasLoaded was found on SinglePlayerController
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
- 
-(Filename:  Line: 375)
-
-OnLevelWasLoaded was found on SingleGameController
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
- 
-(Filename:  Line: 375)
-
-OnLevelWasLoaded was found on PlayerNetworkSetup
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
- 
-(Filename:  Line: 375)
-
-OnLevelWasLoaded was found on MultiGameController
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
- 
-(Filename:  Line: 375)
-
-desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
-<RI> Initializing input.
-<RI> Input initialized.
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 40c0 -> priority: 1 
-  Thread -> id: 3f6c -> priority: 1 
-<RI> Initialized touch support.
+UnloadTime: 0.760766 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 29cc -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.979420 ms
+UnloadTime: 4.172780 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 469.
-Total: 0.292356 ms (FindLiveObjects: 0.018028 ms CreateObjectMapping: 0.012619 ms MarkObjects: 0.253295 ms  DeleteObjects: 0.003004 ms)
-
-UnloadTime: 0.621070 ms
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 3b18 -> priority: 1 
-  Thread -> id: 3958 -> priority: 1 
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.968002 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 469.
-Total: 0.274328 ms (FindLiveObjects: 0.020131 ms CreateObjectMapping: 0.012319 ms MarkObjects: 0.237371 ms  DeleteObjects: 0.003004 ms)
+Total: 0.357345 ms (FindLiveObjects: 0.016723 ms CreateObjectMapping: 0.015017 ms MarkObjects: 0.305808 ms  DeleteObjects: 0.003413 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.279436 ms
+UnloadTime: 0.380553 ms
 
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 538.
-Total: 0.332920 ms (FindLiveObjects: 0.012319 ms CreateObjectMapping: 0.012920 ms MarkObjects: 0.304375 ms  DeleteObjects: 0.003004 ms)
-
-Network configuration mismatch detected. The number of networked scripts on the client does not match the number of networked scripts on the server. This could be caused by lazy loading of scripts on the client. This warning can be disabled by the checkbox in NetworkManager Script CRC Check.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-CRC Local Dump PlayerController : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Local Dump ShowItens : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Local Dump PlayerNetworkSetup : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Local Dump PlayerSync : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Local Dump PlayerSyncRotation : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Local Dump LobbyController : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Remote Dump PlayerController : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Remote Dump ShowItens : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Remote Dump PlayerNetworkSetup : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Remote Dump PlayerSync : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Remote Dump PlayerSyncRotation : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-CRC Remote Dump LobbyController : 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-UnloadTime: 0.332920 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 538.
-Total: 0.441089 ms (FindLiveObjects: 0.012018 ms CreateObjectMapping: 0.012619 ms MarkObjects: 0.399925 ms  DeleteObjects: 0.016225 ms)
-
-Unloading 7 Unused Serialized files USeniallzeo ailing 7 Unused S eri
-alized files (Serialized files now loaded: 0)
-UnloadTime: 1.522479 ms
-UnloadTime: 0.561878 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1241.
-Total: 0.518911 ms (FindLiveObjects: 0.079624 ms CreateObjectMapping: 0.021333 ms MarkObjects: 0.413145 ms  DeleteObjects: 0.004206 ms)
-
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1241.
-Total: 0.485859 ms (FindLiveObjects: 0.078122 ms CreateObjectMapping: 0.020431 ms MarkObjects: 0.382497 ms  DeleteObjects: 0.003906 ms)
+Total: 0.591138 ms (FindLiveObjects: 0.027304 ms CreateObjectMapping: 0.029352 ms MarkObjects: 0.528679 ms  DeleteObjects: 0.005460 ms)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.344939 ms
+UnloadTime: 2.163524 ms
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1241.
-Total: 0.466028 ms (FindLiveObjects: 0.073014 ms CreateObjectMapping: 0.020431 ms MarkObjects: 0.362967 ms  DeleteObjects: 0.009314 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1276.
+Total: 0.516733 ms (FindLiveObjects: 0.051195 ms CreateObjectMapping: 0.029693 ms MarkObjects: 0.431066 ms  DeleteObjects: 0.004436 ms)
 
-Spawn scene object not found for 1
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.405810 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1276.
+Total: 0.500010 ms (FindLiveObjects: 0.047099 ms CreateObjectMapping: 0.030376 ms MarkObjects: 0.414684 ms  DeleteObjects: 0.007508 ms)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:49669}
+Server client disconnect error:1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
-Spawn scene object not found for 1
+OnDisconnectError error:6
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
