@@ -31,7 +31,13 @@ public class PlayerController : NetworkBehaviour {
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        DontDestroyOnLoad(gameObject);     
+        DontDestroyOnLoad(gameObject);
+
+        startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+        transform.position = startPoint;
+
+        GetComponent<PlayerSync>().lastPos = transform.position;
+        GetComponent<PlayerSync>().playerTransform.position = transform.position;
     }
 
     void Awake()

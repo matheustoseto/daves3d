@@ -126,10 +126,6 @@ public class PlayerNetworkSetup : NetworkBehaviour {
                 //if (isServer)
                 //NetworkServer.SpawnObjects();
 
-                Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-                transform.position = startPoint;
-                GetComponent<PlayerController>().startPoint = startPoint;
-
             } else
             {
                 CmdDeletePlayer(gameObject);

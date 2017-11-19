@@ -9,12 +9,12 @@ public class PlayerSync : NetworkBehaviour {
     private Vector3 syncPos;
 
     [SerializeField]
-    Transform playerTransform;
+    public Transform playerTransform;
 
     [SerializeField]
     float lerpRate = 15;
 
-    private Vector3 lastPos;
+    public Vector3 lastPos;
     private float threshold = 1f;
     
     void Update ()
