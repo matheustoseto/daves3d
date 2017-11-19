@@ -64,14 +64,10 @@ public class PlayerController : NetworkBehaviour {
         Animating(input);
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             Jump();
-        }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
+        if (Input.GetMouseButton(0))
             Shoot();
-        }
 
         if (Input.GetMouseButton(1))
             JetPack();
@@ -125,7 +121,7 @@ public class PlayerController : NetworkBehaviour {
     
     void Shoot()
     {
-        if (controller.isGrounded)
+        if (controller.isGrounded && hasPistol)
         {
             CmdSetAnimTrigger("IsShoot");
             CmdFire();
