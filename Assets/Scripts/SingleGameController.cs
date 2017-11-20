@@ -158,7 +158,10 @@ public class SingleGameController : MonoBehaviour {
         }
         if (openDoor && other.gameObject.tag.Equals("Door"))
         {
-            SceneManager.LoadScene("Single_fase_" + (currentStage + 1), LoadSceneMode.Single);
+            if(currentStage != 3)
+                SceneManager.LoadScene("Single_fase_" + (currentStage + 1), LoadSceneMode.Single);
+            else
+                SceneManager.LoadScene("Single_GameOver", LoadSceneMode.Single);
         }
         if (other.gameObject.tag.Equals("GroundDie"))
         {
