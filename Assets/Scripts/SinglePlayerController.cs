@@ -83,7 +83,10 @@ public class SinglePlayerController : MonoBehaviour {
         controller.Move(velocity * Time.deltaTime);
 
         if (controller.isGrounded)
+        {
+            animator.SetBool("IsJetPack", false);
             velocityY = 0;
+        }            
     }
 
     void Animating(Vector2 dir)
@@ -106,6 +109,7 @@ public class SinglePlayerController : MonoBehaviour {
     {
         if (hasJetPack)
         {
+            animator.SetBool("IsJetPack", true);
             float jumpVelocity = Mathf.Sqrt(-1 * gravity * 2);
             velocityY = jumpVelocity;
 

@@ -98,6 +98,7 @@ public class PlayerController : NetworkBehaviour {
 
         if (controller.isGrounded)
         {
+            animator.SetBool("IsJetPack", false);
             velocityY = 0;
         }
     }
@@ -137,6 +138,7 @@ public class PlayerController : NetworkBehaviour {
     {
         if (hasJetPack)
         {
+            animator.SetBool("IsJetPack", true);
             float jumpVelocity = Mathf.Sqrt(-1 * gravity * 2);
             velocityY = jumpVelocity;
 
