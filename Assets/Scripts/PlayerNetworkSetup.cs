@@ -169,4 +169,17 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     {
         EnemyMultiplayer.Instance.CmdFire();
     }
+
+    [Command]
+    public void CmdDestroy(GameObject obj)
+    {
+        Destroy(obj);
+        RpcDestroy(obj);
+    }
+
+    [ClientRpc]
+    public void RpcDestroy(GameObject obj)
+    {
+        Destroy(obj);
+    }
 }

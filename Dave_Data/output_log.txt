@@ -47,24 +47,87 @@ desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.756685 ms
+UnloadTime: 0.614700 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2f08 -> priority: 1 
+  Thread -> id: 14ec -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.575269 ms
+UnloadTime: 4.712135 ms
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 577.
-Total: 0.361789 ms (FindLiveObjects: 0.036861 ms CreateObjectMapping: 0.035154 ms MarkObjects: 0.263833 ms  DeleteObjects: 0.003413 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 578.
+Total: 0.354621 ms (FindLiveObjects: 0.036178 ms CreateObjectMapping: 0.035496 ms MarkObjects: 0.274413 ms  DeleteObjects: 0.003754 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.624939 ms
+UnloadTime: 0.322197 ms
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 644.
-Total: 1.034171 ms (FindLiveObjects: 0.050513 ms CreateObjectMapping: 0.070992 ms MarkObjects: 0.894916 ms  DeleteObjects: 0.016724 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 645.
+Total: 0.517426 ms (FindLiveObjects: 0.024574 ms CreateObjectMapping: 0.034131 ms MarkObjects: 0.450188 ms  DeleteObjects: 0.007850 ms)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.415074 ms
+UnloadTime: 1.313704 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1665.
-Total: 0.584323 ms (FindLiveObjects: 0.054951 ms CreateObjectMapping: 0.025598 ms MarkObjects: 0.495583 ms  DeleteObjects: 0.007167 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1672.
+Total: 0.629718 ms (FindLiveObjects: 0.055633 ms CreateObjectMapping: 0.041639 ms MarkObjects: 0.527324 ms  DeleteObjects: 0.005119 ms)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:GetComponentFastPath (System.Type,intptr)
+  at UnityEngine.Component.GetComponent[NetworkIdentity] () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkBehaviour.get_myView () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkBehaviour.get_isServer () [0x00000] in <filename unknown>:0 
+  at EnemyMultiplayer.CallCmdFire () [0x00000] in <filename unknown>:0 
+  at PlayerNetworkSetup.CmdFire () [0x00000] in <filename unknown>:0 
+  at PlayerNetworkSetup.InvokeCmdCmdFire (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkIdentity.HandleCommand (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.OnCommandMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkConnection.HandleReader (UnityEngine.Networking.NetworkReader reader, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkConnection.HandleBytes (System.Byte[] buffer, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkConnection.TransportRecieve (System.Byte[] bytes, Int32 numBytes, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer+ServerSimpleWrapper.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServerSimple.HandleData (Int32 connectionId, Int32 channelId, Int32 receivedSize, Byte error) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServerSimple.Update () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.Update () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:GetComponentFastPath (System.Type,intptr)
+  at UnityEngine.Component.GetComponent[NetworkIdentity] () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkBehaviour.get_myView () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkBehaviour.get_isServer () [0x00000] in <filename unknown>:0 
+  at EnemyMultiplayer.CallCmdFire () [0x00000] in <filename unknown>:0 
+  at PlayerNetworkSetup.CmdFire () [0x00000] in <filename unknown>:0 
+  at PlayerNetworkSetup.InvokeCmdCmdFire (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkIdentity.HandleCommand (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.OnCommandMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkConnection.HandleReader (UnityEngine.Networking.NetworkReader reader, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkConnection.HandleBytes (System.Byte[] buffer, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkConnection.TransportRecieve (System.Byte[] bytes, Int32 numBytes, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer+ServerSimpleWrapper.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServerSimple.HandleData (Int32 connectionId, Int32 channelId, Int32 receivedSize, Byte error) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServerSimple.Update () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkServer.Update () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:55166}
+Server client disconnect error:1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+OnDisconnectError error:6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Failed to send internal buffer channel:0 bytesToSend:1395
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Send Error: WrongConnection channel:0 bytesToSend:1395
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 

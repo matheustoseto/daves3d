@@ -13,6 +13,8 @@ public class EnemyMultiplayer : NetworkBehaviour
 
     private float timer = 1f;
 
+    public int score = 10;
+
     private void Start()
     {
         instance = this;
