@@ -90,7 +90,8 @@ public class MultiGameController : NetworkBehaviour
                     RpcAddScorePanel(p);
             }
             */
-            gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
+            //gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
         else
         {

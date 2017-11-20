@@ -163,4 +163,10 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     {
         GameOverMulti.Instance.CmdAddScorePanel();
     }
+
+    [Command]
+    public void CmdFire()
+    {
+        EnemyMultiplayer.Instance.CmdFire();
+    }
 }

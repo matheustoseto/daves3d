@@ -3,18 +3,9 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-
-        if (collision.gameObject.name == "Spider")
-        {
-            Destroy(collision.transform.root.gameObject);
-        }
-
-        if (collision.gameObject.name == "DavePlayer")
-        {
-            //  Destroy(collision.gameObject);
-        }
+        if (other.gameObject.tag.Equals("Player"))
+            other.gameObject.GetComponent<MultiGameController>().RemoveLife();
     }
 }
