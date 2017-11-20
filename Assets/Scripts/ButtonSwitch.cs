@@ -8,6 +8,9 @@ public class ButtonSwitch : NetworkBehaviour
     public int idButton;
     public bool bridgeReady = false;
 
+    public Material red;
+    public Material green;
+
     private static ButtonSwitch instance;
     public static ButtonSwitch Instance { get { return instance; } }
 
@@ -58,7 +61,14 @@ public class ButtonSwitch : NetworkBehaviour
         foreach (GameObject bj in GameObject.FindGameObjectsWithTag("ButtonSwitch"))
         {         
             if (bj.GetComponent<ButtonSwitch>().idButton == idButton)
+            {
                 bj.GetComponent<ButtonSwitch>().animator.SetBool("Press", trigger);
+
+                if (trigger)
+                    bj.transform.Find("Cube").GetComponent<Renderer>().material = bj.GetComponent<ButtonSwitch>().green;
+                else
+                    bj.transform.Find("Cube").GetComponent<Renderer>().material = bj.GetComponent<ButtonSwitch>().red;
+            }            
         }
             
     }
