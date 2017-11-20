@@ -21,6 +21,9 @@ public class MultiGameController : NetworkBehaviour
 
     public bool openDoor = false;
 
+    [SyncVar]
+    public bool gameOver = false;
+
     private string fmt = "00000";
     public int score = 0;
     public Font font;
@@ -69,22 +72,25 @@ public class MultiGameController : NetworkBehaviour
             portal.SetActive(false);
         }
 
-        if (SceneManager.GetActiveScene().name.Equals("Single_GameOver") && isServer)
+        if (SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
         {
-            foreach (Player p in NetworkManagerHUD.Instance.playerList)
-            {
-                GameObject childObject = Instantiate(ScoresPanel) as GameObject;
-                childObject.transform.Find("Score").GetComponent<Text>().text = p.score.ToString();
-                childObject.transform.Find("Level").GetComponent<Text>().text = currentStage.ToString();
-                childObject.transform.Find("Name").GetComponent<Text>().text = p.playerName;
+            /*
+            if (isServer && isLocalPlayer) {
+                foreach (Player p in NetworkManagerHUD.Instance.playerList)
+                {
+                    GameObject childObject = Instantiate(ScoresPanel) as GameObject;
+                    childObject.transform.Find("Score").GetComponent<Text>().text = p.score.ToString();
+                    childObject.transform.Find("Level").GetComponent<Text>().text = currentStage.ToString();
+                    childObject.transform.Find("Name").GetComponent<Text>().text = p.playerName;
 
-                NetworkServer.Spawn(childObject);
+                    NetworkServer.Spawn(childObject);
+                }
+
+                foreach (Player p in NetworkManagerHUD.Instance.playerList)
+                    RpcAddScorePanel(p);
             }
-
-            foreach (Player p in NetworkManagerHUD.Instance.playerList)
-                RpcAddScorePanel(p);
-
-            gameObject.SetActive(false);
+            */
+            gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
         }
         else
         {
@@ -96,25 +102,17 @@ public class MultiGameController : NetworkBehaviour
     [Command]
     public void CmdLoadGameOverScene()
     {
-        SceneManager.LoadScene("Multi_GameOver", LoadSceneMode.Single);
-        RpcLoadGameOverScene();
+        NetworkManager.singleton.ServerChangeScene("Multi_GameOver");
     }
 
-    [ClientRpc]
-    public void RpcLoadGameOverScene()
-    {
-        SceneManager.LoadScene("Multi_GameOver", LoadSceneMode.Single);
-    }
-
+    /*
     [ClientRpc]
     public void RpcAddScorePanel(Player p)
     {
         GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Score").GetComponent<Text>().text = p.score.ToString();
         GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Level").GetComponent<Text>().text = currentStage.ToString();
         GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Name").GetComponent<Text>().text = p.playerName;
-
-        gameObject.SetActive(false);
-    }
+    }*/
 
     public void OpenDoor()
     {
@@ -130,7 +128,7 @@ public class MultiGameController : NetworkBehaviour
 
         GUI.BeginGroup(new Rect(0, 0, Screen.width, Screen.height));
 
-        if (Lifes > 0)
+        if (!gameOver)
         {
             GUI.Label(new Rect(15, 15, 300, 50), score.ToString(fmt));
             for (int i = 0; i < Lifes; i++)
@@ -195,10 +193,13 @@ public class MultiGameController : NetworkBehaviour
         {
             removeLife = true;
             Lifes--;
-            player.transform.position = player.GetComponent<PlayerController>().startPoint;
+            player.transform.position = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
 
             if (Lifes <= 0)
+            {
+                gameOver = true;
                 CmdLoadGameOverScene();
+            }
             removeLife = false;
         }
     }

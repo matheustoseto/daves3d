@@ -197,8 +197,11 @@ public class LobbyController : NetworkBehaviour
         if (isServer && ReadyGame())
         {
             NetworkManagerHUD.Instance.gameStart = true;
-            SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
-            RpcReadyGame();
+
+            NetworkManager.singleton.ServerChangeScene("Multi_fase_1");
+
+            //SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+            //RpcReadyGame();
         }    
     }
 

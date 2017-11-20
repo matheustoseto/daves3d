@@ -6,22 +6,33 @@ public class PlayerSync : NetworkBehaviour {
 
 
     [SyncVar]
-    private Vector3 syncPos;
+    public Vector3 syncPos;
 
-    [SerializeField]
     public Transform playerTransform;
-
-    [SerializeField]
-    float lerpRate = 15;
-
+    public float lerpRate = 15;
     public Vector3 lastPos;
-    private float threshold = 1f;
-    
+    public float threshold = 1f;
+    public bool ready = false;
+
+    private void Start()
+    {
+        Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+        playerTransform.position = startPoint;
+        syncPos = startPoint;
+        lastPos = startPoint;
+    }
+
     void Update ()
     {
+        if (!ready)
+        {
+            playerTransform.position = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+            ready = true;
+        }
+
         TransmitPosition();
         LerpPosition();
-	}	
+    }	
 	
 	void LerpPosition ()
     {

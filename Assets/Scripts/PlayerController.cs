@@ -29,7 +29,7 @@ public class PlayerController : NetworkBehaviour {
     public bool hasPistol = false;
     public bool hasJetPack = false;
 
-    public Vector3 startPoint;
+    //public Vector3 startPoint;
 
     public GameObject pistolPrefab;
     public GameObject jetPackPrefab;
@@ -39,16 +39,15 @@ public class PlayerController : NetworkBehaviour {
         controller = GetComponent<CharacterController>();
         DontDestroyOnLoad(gameObject);
 
-        startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-        transform.position = startPoint;
-
-        GetComponent<PlayerSync>().lastPos = transform.position;
-        GetComponent<PlayerSync>().playerTransform.position = transform.position;
+        //startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+        //GetComponent<PlayerSync>().lastPos = startPoint;
+        //GetComponent<PlayerSync>().playerTransform.position = startPoint;
+        //transform.position = startPoint;
     }
 
     void Awake()
     {
-        
+        //transform.position = startPoint;
     }
 
     // Update is called once per frame

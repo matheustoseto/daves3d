@@ -8,7 +8,7 @@ using System.Linq;
 
 public class NetworkManagerHUD : NetworkManager
 {
-    private NetworkManager manager;
+    public NetworkManager manager;
     public GameObject canvasMenu;
 
     public string playerName = "";

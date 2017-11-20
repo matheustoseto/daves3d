@@ -31,7 +31,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
             instance = this;
             CmdGameStart(NetworkManagerHUD.Instance.playerName);
         }
-               
+
     }
 
     private void FixedUpdate()
@@ -113,24 +113,24 @@ public class PlayerNetworkSetup : NetworkBehaviour {
         {
             if (!isViewer)
             {
-                GameObject.Find("Scene Camera").SetActive(false);
+                if (GameObject.Find("Scene Camera"))
+                    GameObject.Find("Scene Camera").SetActive(false);
 
                 GetComponent<CharacterController>().enabled = true;
                 GetComponent<PlayerController>().enabled = true;
-                //GetComponent<ShowItens>().enabled = true;
                 GetComponent<MultiGameController>().enabled = true;
                 //goPlayerName.SetActive(true);
                 playerCam.enabled = true;
                 playerAudio.enabled = true;
 
-                //if (isServer)
-                //NetworkServer.SpawnObjects();
-
             } else
             {
                 CmdDeletePlayer(gameObject);
-            }         
+            }
         }
+
+        if (!SceneManager.GetActiveScene().name.Equals("LobbyMatch"))
+            GetComponent<PlayerSync>().enabled = true;
     }
 
     [Command]
@@ -144,5 +144,23 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     public void RpcDeletePlayer(GameObject player)
     {
         Destroy(player);
+    }
+
+    [Command]
+    public void CmdBridgeStage(int option)
+    {
+        Bridge.Instance.CmdBridgeStage(option);
+    }
+
+    [Command]
+    public void CmdButton(bool trigger, int idButton)
+    {
+        ButtonSwitch.Instance.CmdButton(trigger, idButton);
+    }
+
+    [Command]
+    public void CmdAddScorePanel()
+    {
+        GameOverMulti.Instance.CmdAddScorePanel();
     }
 }
