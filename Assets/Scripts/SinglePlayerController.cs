@@ -34,6 +34,7 @@ public class SinglePlayerController : MonoBehaviour {
     public AudioSource audioS;
     public AudioClip audioClipPickUp;
     public AudioClip audioClipCup;
+    public AudioClip audioClipDoor;
 
     void Start()
     {
@@ -165,6 +166,12 @@ public class SinglePlayerController : MonoBehaviour {
         if (other.gameObject.tag.Equals("Cup"))
         {
             audioS.clip = audioClipCup;
+            audioS.Play();
+        }
+
+        if (other.gameObject.tag.Equals("Door"))
+        {
+            audioS.clip = audioClipDoor;
             audioS.Play();
         }
     }
