@@ -14,6 +14,9 @@ public class GameOverPanel : NetworkBehaviour
         gameObject.transform.SetParent(Grid.transform);
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         gameObject.transform.localPosition = Vector3.zero;
+
+        if(!isServer)
+            PlayerNetworkSetup.Instance.CmdRefreshScorePanel();
     }
 
 }

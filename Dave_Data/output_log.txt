@@ -16,6 +16,54 @@ Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dl
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.038 seconds
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on SinglePlayerController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+OnLevelWasLoaded was found on SingleGameController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+OnLevelWasLoaded was found on PlayerNetworkSetup
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+OnLevelWasLoaded was found on MultiGameController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Initialize engine version: 5.4.2f2 (b7e030c65c9b)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c82)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
 - Completed reload, in  0.040 seconds
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
@@ -47,87 +95,150 @@ desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.614700 ms
+<RI> Initialized touch support.
+UnloadTime: 0.720848 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 14ec -> priority: 1 
+  Thread -> id: 2b58 -> priority: 1 
+UnloadTime: 0.547121 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.712135 ms
+UnloadTime: 4.474582 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 578.
-Total: 0.354621 ms (FindLiveObjects: 0.036178 ms CreateObjectMapping: 0.035496 ms MarkObjects: 0.274413 ms  DeleteObjects: 0.003754 ms)
+Total: 0.411620 ms (FindLiveObjects: 0.035496 ms CreateObjectMapping: 0.022867 ms MarkObjects: 0.329706 ms  DeleteObjects: 0.018430 ms)
 
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 3048 -> priority: 1 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.322197 ms
+UnloadTime: 0.381926 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 645.
-Total: 0.517426 ms (FindLiveObjects: 0.024574 ms CreateObjectMapping: 0.034131 ms MarkObjects: 0.450188 ms  DeleteObjects: 0.007850 ms)
+Total: 0.705489 ms (FindLiveObjects: 0.031741 ms CreateObjectMapping: 0.045394 ms MarkObjects: 0.616065 ms  DeleteObjects: 0.011945 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.407043 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 578.
+Total: 0.376465 ms (FindLiveObjects: 0.024915 ms CreateObjectMapping: 0.027987 ms MarkObjects: 0.317418 ms  DeleteObjects: 0.004437 ms)
+
+Network configuration mismatch detected. The number of networked scripts on the client does not match the number of networked scripts on the server. This could be caused by lazy loading of scripts on the client. This warning can be disabled by the checkbox in NetworkManager Script CRC Check.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+CRC Local Dump Bridge : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump ShowItens : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerNetworkSetup : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerSync : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerSyncRotation : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump MultiGameController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump LobbyController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump Bridge : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump ShowItens : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerNetworkSetup : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerSync : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerSyncRotation : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump MultiGameController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump LobbyController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+UnloadTime: 0.293868 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 645.
+Total: 0.473397 ms (FindLiveObjects: 0.022867 ms CreateObjectMapping: 0.032765 ms MarkObjects: 0.409231 ms  DeleteObjects: 0.007508 ms)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.313704 ms
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.854682 ms
+UnloadTime: 0.533127 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1672.
-Total: 0.629718 ms (FindLiveObjects: 0.055633 ms CreateObjectMapping: 0.041639 ms MarkObjects: 0.527324 ms  DeleteObjects: 0.005119 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1669.
+Total: 0.526301 ms (FindLiveObjects: 0.055292 ms CreateObjectMapping: 0.027304 ms MarkObjects: 0.438925 ms  DeleteObjects: 0.004437 ms)
 
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.Component:GetComponentFastPath (System.Type,intptr)
-  at UnityEngine.Component.GetComponent[NetworkIdentity] () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkBehaviour.get_myView () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkBehaviour.get_isServer () [0x00000] in <filename unknown>:0 
-  at EnemyMultiplayer.CallCmdFire () [0x00000] in <filename unknown>:0 
-  at PlayerNetworkSetup.CmdFire () [0x00000] in <filename unknown>:0 
-  at PlayerNetworkSetup.InvokeCmdCmdFire (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.HandleCommand (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnCommandMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleReader (UnityEngine.Networking.NetworkReader reader, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleBytes (System.Byte[] buffer, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.TransportRecieve (System.Byte[] bytes, Int32 numBytes, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer+ServerSimpleWrapper.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.HandleData (Int32 connectionId, Int32 channelId, Int32 receivedSize, Byte error) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
 
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.Component:GetComponentFastPath (System.Type,intptr)
-  at UnityEngine.Component.GetComponent[NetworkIdentity] () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkBehaviour.get_myView () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkBehaviour.get_isServer () [0x00000] in <filename unknown>:0 
-  at EnemyMultiplayer.CallCmdFire () [0x00000] in <filename unknown>:0 
-  at PlayerNetworkSetup.CmdFire () [0x00000] in <filename unknown>:0 
-  at PlayerNetworkSetup.InvokeCmdCmdFire (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.HandleCommand (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnCommandMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleReader (UnityEngine.Networking.NetworkReader reader, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleBytes (System.Byte[] buffer, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.TransportRecieve (System.Byte[] bytes, Int32 numBytes, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer+ServerSimpleWrapper.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.HandleData (Int32 connectionId, Int32 channelId, Int32 receivedSize, Byte error) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 1669.
+Total: 0.675112 ms (FindLiveObjects: 0.065531 ms CreateObjectMapping: 0.034472 ms MarkObjects: 0.545414 ms  DeleteObjects: 0.029694 ms)
 
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:55166}
-Server client disconnect error:1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.441696 ms
+UnloadTime: 0.977855 ms
 
-OnDisconnectError error:6
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 921.
+Total: 1.043386 ms (FindLiveObjects: 0.087716 ms CreateObjectMapping: 0.045053 ms MarkObjects: 0.681597 ms  DeleteObjects: 0.228678 ms)
 
-Failed to send internal buffer channel:0 bytesToSend:1395
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
-Send Error: WrongConnection channel:0 bytesToSend:1395
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 963.
+Total: 1.088781 ms (FindLiveObjects: 0.074405 ms CreateObjectMapping: 0.047100 ms MarkObjects: 0.719824 ms  DeleteObjects: 0.247108 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.500361 ms
+UnloadTime: 0.460769 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 970.
+Total: 1.493575 ms (FindLiveObjects: 0.171679 ms CreateObjectMapping: 0.076453 ms MarkObjects: 1.209263 ms  DeleteObjects: 0.035154 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 971.
+Total: 0.836893 ms (FindLiveObjects: 0.066214 ms CreateObjectMapping: 0.039933 ms MarkObjects: 0.719824 ms  DeleteObjects: 0.010580 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.288748 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 964.
+Total: 0.723919 ms (FindLiveObjects: 0.063825 ms CreateObjectMapping: 0.038909 ms MarkObjects: 0.615724 ms  DeleteObjects: 0.004778 ms)
+
+UnloadTime: 0.366226 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 964.
+Total: 0.743715 ms (FindLiveObjects: 0.063825 ms CreateObjectMapping: 0.038909 ms MarkObjects: 0.634837 ms  DeleteObjects: 0.005802 ms)
 

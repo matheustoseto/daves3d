@@ -20,14 +20,15 @@ public class LobbyController : NetworkBehaviour
     private static LobbyController instance;
     public static LobbyController Instance { get { return instance; } }
 
-    void Start()
+    private void Awake()
     {
-        instance = this;      
+        instance = this;
     }
 
     private void FixedUpdate()
     {
-        textPanel.text = textBox;
+        if(textPanel != null)
+            textPanel.text = textBox;
     }
 
     [Command]

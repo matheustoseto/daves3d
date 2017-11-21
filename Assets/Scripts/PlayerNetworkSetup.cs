@@ -22,6 +22,8 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     public TextMesh textPlayerName;
     public GameObject goPlayerName;
 
+    public GameObject ScoresPanel;
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -41,7 +43,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
     [Command]
     public void CmdGameStart(string playerName)
-    {
+    {      
         RpcGameStart(playerName, NetworkManagerHUD.Instance.gameStart);
     }
 
@@ -131,6 +133,17 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
         if (!SceneManager.GetActiveScene().name.Equals("LobbyMatch"))
             GetComponent<PlayerSync>().enabled = true;
+
+        if (SceneManager.GetActiveScene().name.Equals("LobbyMatch"))
+        {
+            NetworkManagerHUD.Instance.gameStart = false;
+            MultiGameController.Instance.gameOver = false;
+
+            if(isServer)
+                NetworkManagerHUD.Instance.playerList.Clear();
+
+            CmdGameStart(NetworkManagerHUD.Instance.playerName);
+        }
     }
 
     [Command]
@@ -159,12 +172,6 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     }
 
     [Command]
-    public void CmdAddScorePanel()
-    {
-        GameOverMulti.Instance.CmdAddScorePanel();
-    }
-
-    [Command]
     public void CmdFire()
     {
         EnemyMultiplayer.Instance.CmdFire();
@@ -181,5 +188,36 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     public void RpcDestroy(GameObject obj)
     {
         Destroy(obj);
+    }
+
+    [Command]
+    public void CmdAddScorePanel()
+    {
+        string fmt = "00000";
+        foreach (Player p in NetworkManagerHUD.Instance.playerList)
+        {
+            GameObject childObject = Instantiate(ScoresPanel) as GameObject;
+            childObject.transform.Find("Score").GetComponent<Text>().text = p.score.ToString(fmt);
+            childObject.transform.Find("Level").GetComponent<Text>().text = MultiGameController.currentStage.ToString();
+            childObject.transform.Find("Name").GetComponent<Text>().text = p.playerName;
+
+            NetworkServer.Spawn(childObject);
+        }
+    }
+
+    [ClientRpc]
+    public void RpcAddScorePanel(Player p)
+    {
+        string fmt = "00000";
+        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Score").GetComponent<Text>().text = p.score.ToString(fmt);
+        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Level").GetComponent<Text>().text = MultiGameController.currentStage.ToString();
+        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Name").GetComponent<Text>().text = p.playerName;
+    }
+
+    [Command]
+    public void CmdRefreshScorePanel()
+    {
+        foreach (Player p in NetworkManagerHUD.Instance.playerList)
+            RpcAddScorePanel(p);
     }
 }

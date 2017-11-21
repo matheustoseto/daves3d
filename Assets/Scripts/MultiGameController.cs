@@ -21,7 +21,6 @@ public class MultiGameController : NetworkBehaviour
 
     public bool openDoor = false;
 
-    [SyncVar]
     public bool gameOver = false;
 
     private string fmt = "00000";
@@ -74,24 +73,11 @@ public class MultiGameController : NetworkBehaviour
 
         if (SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
         {
-            /*
-            if (isServer && isLocalPlayer) {
-                foreach (Player p in NetworkManagerHUD.Instance.playerList)
-                {
-                    GameObject childObject = Instantiate(ScoresPanel) as GameObject;
-                    childObject.transform.Find("Score").GetComponent<Text>().text = p.score.ToString();
-                    childObject.transform.Find("Level").GetComponent<Text>().text = currentStage.ToString();
-                    childObject.transform.Find("Name").GetComponent<Text>().text = p.playerName;
-
-                    NetworkServer.Spawn(childObject);
-                }
-
-                foreach (Player p in NetworkManagerHUD.Instance.playerList)
-                    RpcAddScorePanel(p);
-            }
-            */
-            //gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            gameOver = true;      
+            gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
+            GetComponent<CharacterController>().enabled = false;
+            GetComponent<PlayerController>().enabled = false;
+            GetComponent<MultiGameController>().enabled = false;
         }
         else
         {
@@ -105,15 +91,6 @@ public class MultiGameController : NetworkBehaviour
     {
         NetworkManager.singleton.ServerChangeScene("Multi_GameOver");
     }
-
-    /*
-    [ClientRpc]
-    public void RpcAddScorePanel(Player p)
-    {
-        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Score").GetComponent<Text>().text = p.score.ToString();
-        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Level").GetComponent<Text>().text = currentStage.ToString();
-        GameObject.FindGameObjectsWithTag("ScoresPanel")[p.index].transform.Find("Name").GetComponent<Text>().text = p.playerName;
-    }*/
 
     public void OpenDoor()
     {
