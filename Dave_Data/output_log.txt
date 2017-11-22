@@ -2,23 +2,23 @@ Initialize engine version: 5.4.2f2 (b7e030c65c9b)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: AMD Radeon R7 M265 (ID=0x6900)
+    Renderer: Radeon (TM) RX 480 Graphics (ID=0x67df)
     Vendor:   ATI
-    VRAM:     2035 MB
+    VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.076 seconds
-Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.115 seconds
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
@@ -43,28 +43,204 @@ Add a delegate to SceneManager.sceneLoaded instead to get notifications after sc
  
 (Filename:  Line: 375)
 
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.688299 ms
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2f3c -> priority: 1 
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 7.047213 ms
+UnloadTime: 0.671549 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 97bc -> priority: 1 
+  Thread -> id: 6efc -> priority: 1 
+Initialize engine version: 5.4.2f2 (b7e030c65c9b)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Radeon (TM) RX 480 Graphics (ID=0x67df)
+    Vendor:   ATI
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.034 seconds
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on SinglePlayerController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 877.
-Total: 0.373835 ms (FindLiveObjects: 0.056450 ms CreateObjectMapping: 0.035922 ms MarkObjects: 0.258960 ms  DeleteObjects: 0.015395 ms)
+OnLevelWasLoaded was found on SingleGameController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
 
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.475288 ms
+OnLevelWasLoaded was found on PlayerNetworkSetup
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 867.
-Total: 3.000552 ms (FindLiveObjects: 0.038291 ms CreateObjectMapping: 0.024869 ms MarkObjects: 0.209616 ms  DeleteObjects: 2.727775 ms)
+OnLevelWasLoaded was found on MultiGameController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.498668 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 614.
+Total: 0.303774 ms (FindLiveObjects: 0.032150 ms CreateObjectMapping: 0.018929 ms MarkObjects: 0.244582 ms  DeleteObjects: 0.003305 ms)
+
+UnloadTime: 0.916132 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 8e70 -> priority: 1 
+  Thread -> id: c7b0 -> priority: 1 
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.215436 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 683.
+Total: 0.422460 ms (FindLiveObjects: 0.014122 ms CreateObjectMapping: 0.020431 ms MarkObjects: 0.367173 ms  DeleteObjects: 0.019830 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.854424 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 614.
+Total: 0.322403 ms (FindLiveObjects: 0.023136 ms CreateObjectMapping: 0.021633 ms MarkObjects: 0.272525 ms  DeleteObjects: 0.003305 ms)
+
+Network configuration mismatch detected. The number of networked scripts on the client does not match the number of networked scripts on the server. This could be caused by lazy loading of scripts on the client. This warning can be disabled by the checkbox in NetworkManager Script CRC Check.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+CRC Local Dump Bridge : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump ShowItens : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerNetworkSetup : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerSync : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump PlayerSyncRotation : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump MultiGameController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Local Dump LobbyController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump Bridge : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump ShowItens : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerNetworkSetup : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerSync : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump PlayerSyncRotation : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump MultiGameController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+CRC Remote Dump LobbyController : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+UnloadTime: 0.229859 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 683.
+Total: 0.346141 ms (FindLiveObjects: 0.015023 ms CreateObjectMapping: 0.021934 ms MarkObjects: 0.302873 ms  DeleteObjects: 0.006009 ms)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.365150 ms
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.177240 ms
+UnloadTime: 0.493371 ms
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 890.
-Total: 0.922548 ms (FindLiveObjects: 0.040660 ms CreateObjectMapping: 0.029212 ms MarkObjects: 0.220669 ms  DeleteObjects: 0.631612 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2301.
+Total: 0.868958 ms (FindLiveObjects: 0.118985 ms CreateObjectMapping: 0.043568 ms MarkObjects: 0.686573 ms  DeleteObjects: 0.019530 ms)
+
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2301.
+Total: 0.728638 ms (FindLiveObjects: 0.082028 ms CreateObjectMapping: 0.057990 ms MarkObjects: 0.583812 ms  DeleteObjects: 0.004807 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
+  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
+  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
+  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
+  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
+  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
+  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 
