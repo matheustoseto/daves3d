@@ -179,19 +179,7 @@ public class MultiGameController : NetworkBehaviour
 
     public void RemoveLife()
     {
-        if (!removeLife)
-        {
-            removeLife = true;
-            Lifes--;
-            player.transform.position = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-
-            if (Lifes <= 0)
-            {
-                gameOver = true;
-                CmdLoadGameOverScene();
-            }
-            removeLife = false;
-        }
+        GetComponent<PlayerSync>().StartPosition();
     }
 
     void OnTriggerEnter(Collider other)
@@ -207,7 +195,7 @@ public class MultiGameController : NetworkBehaviour
         }
         if (openDoor && other.gameObject.tag.Equals("Door"))
         {
-            SceneManager.LoadScene("Single_fase_" + (currentStage + 1), LoadSceneMode.Single);
+            CmdLoadGameOverScene();
         }
         if (other.gameObject.tag.Equals("GroundDie"))
         {

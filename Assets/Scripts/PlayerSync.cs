@@ -17,26 +17,14 @@ public class PlayerSync : NetworkBehaviour {
     private void Start()
     {
         if (GameObject.FindGameObjectWithTag("StartPoint"))
-        {
-            Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-            playerTransform.position = startPoint;
-            syncPos = startPoint;
-            lastPos = startPoint;
-        }
+            StartPosition();
     }
 
     void Update ()
     {
         if (!ready)
         {
-            if (GameObject.FindGameObjectWithTag("StartPoint"))
-            {
-                Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-                playerTransform.position = startPoint;
-                syncPos = startPoint;
-                lastPos = startPoint;
-                ready = true;
-            }
+            StartPosition();
         }
         else
         {
@@ -75,5 +63,17 @@ public class PlayerSync : NetworkBehaviour {
         playerTransform.position = new Vector3(0, 0, 0);
         lastPos = new Vector3(0, 0, 0);
         syncPos = new Vector3(0, 0, 0);
+    }
+
+    public void StartPosition()
+    {
+        if (GameObject.FindGameObjectWithTag("StartPoint"))
+        {
+            Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+            playerTransform.position = startPoint;
+            syncPos = startPoint;
+            lastPos = startPoint;
+            ready = true;
+        }
     }
 }
