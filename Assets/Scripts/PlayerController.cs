@@ -191,13 +191,13 @@ public class PlayerController : NetworkBehaviour {
         if (other.gameObject.tag.Equals("Pistol"))
         {
             hasPistol = true;
-            Destroy(other.gameObject);
+            CmdSetDestroy(other.gameObject);
             CmdActiveItens(1);
         }
         if (other.gameObject.tag.Equals("JetPack"))
         {
             hasJetPack = true;
-            Destroy(other.gameObject);
+            CmdSetDestroy(other.gameObject);
             CmdActiveItens(2);
             maxJetpack = 50f;
         }
