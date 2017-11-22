@@ -83,7 +83,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
             if (isReady)
             {
                 isViewer = true;
-                SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+                //SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
             }
             else
             {
@@ -166,14 +166,17 @@ public class PlayerNetworkSetup : NetworkBehaviour {
             playerCam.enabled = false;
             playerAudio.enabled = false;
             NetworkManagerHUD.Instance.gameStart = false;
-            MultiGameController.Instance.gameOver = false;
+            if(MultiGameController.Instance != null)
+            {
+                MultiGameController.currentStage = 1;
+                MultiGameController.Instance.score = 0;
+                MultiGameController.Instance.gameOver = false;
+            }
+                
             GetComponent<PlayerSync>().enabled = false;
             GetComponent<PlayerSync>().Reset();           
             GetComponent<PlayerSync>().ready = false;
-            
-            MultiGameController.currentStage = 1;
-            MultiGameController.Instance.score = 0;
-
+                     
             if(isServer)
                 NetworkManagerHUD.Instance.playerList.Clear();
 

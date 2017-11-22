@@ -16,25 +16,33 @@ public class PlayerSync : NetworkBehaviour {
 
     private void Start()
     {
-        Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-        playerTransform.position = startPoint;
-        syncPos = startPoint;
-        lastPos = startPoint;
+        if (GameObject.FindGameObjectWithTag("StartPoint"))
+        {
+            Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+            playerTransform.position = startPoint;
+            syncPos = startPoint;
+            lastPos = startPoint;
+        }
     }
 
     void Update ()
     {
         if (!ready)
         {
-            Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-            playerTransform.position = startPoint;
-            syncPos = startPoint;
-            lastPos = startPoint;
-            ready = true;
+            if (GameObject.FindGameObjectWithTag("StartPoint"))
+            {
+                Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+                playerTransform.position = startPoint;
+                syncPos = startPoint;
+                lastPos = startPoint;
+                ready = true;
+            }
         }
-
-        TransmitPosition();
-        LerpPosition();
+        else
+        {
+            TransmitPosition();
+            LerpPosition();
+        }       
     }	
 	
 	void LerpPosition ()

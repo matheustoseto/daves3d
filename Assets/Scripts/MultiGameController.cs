@@ -27,7 +27,7 @@ public class MultiGameController : NetworkBehaviour
     public int score = 0;
     public Font font;
 
-    public static int currentStage;
+    public static int currentStage = 1;
 
     public Texture2D jackPackBar_1;
     public Texture2D jackPackBar_2;
@@ -62,8 +62,11 @@ public class MultiGameController : NetworkBehaviour
     private void OnLevelWasLoaded(int level)
     {
         if (SceneManager.GetActiveScene().name.Equals("Multi_fase_1"))
+        {
+            gameOver = false;
             currentStage = 1;
-        else if(!SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
+
+        } else if(!SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
         {
             openDoor = false;
             currentStage++;
