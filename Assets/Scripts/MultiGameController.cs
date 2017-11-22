@@ -88,6 +88,10 @@ public class MultiGameController : NetworkBehaviour
             //gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
             if(GameObject.Find("MainCamera"))
                 GameObject.Find("MainCamera").SetActive(false);
+            GetComponent<PlayerController>().hasJetPack = false;
+            GetComponent<PlayerController>().hasPistol = false;
+            GetComponent<PlayerController>().jetPackPrefab.SetActive(false);
+            GetComponent<PlayerController>().pistolPrefab.SetActive(false);
             GetComponent<CharacterController>().enabled = false;
             GetComponent<PlayerController>().enabled = false;
             GetComponent<MultiGameController>().enabled = false;

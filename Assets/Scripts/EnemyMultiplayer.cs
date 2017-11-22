@@ -35,7 +35,7 @@ public class EnemyMultiplayer : NetworkBehaviour
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag.Equals("Player"))
-            PlayerNetworkSetup.Instance.CmdFire();
+            CmdFire();
     }
 
     [Command]
