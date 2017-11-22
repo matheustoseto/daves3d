@@ -32,9 +32,11 @@ public class SinglePlayerController : MonoBehaviour {
     public GameObject jetPackPrefab;
 
     public AudioSource audioS;
+    public AudioSource audioJetPack;
     public AudioClip audioClipPickUp;
     public AudioClip audioClipCup;
     public AudioClip audioClipDoor;
+    public AudioClip audioClipGun;
 
     void Start()
     {
@@ -68,7 +70,18 @@ public class SinglePlayerController : MonoBehaviour {
             Shoot();
 
         if (Input.GetMouseButton(1))
+        {
             JetPack();
+        }
+        if (Input.GetMouseButtonDown(1) && hasJetPack)
+        {
+            audioJetPack.Play();
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            audioJetPack.Stop();
+        }
+
     }
 
     void Move(Vector2 dir)
@@ -118,10 +131,15 @@ public class SinglePlayerController : MonoBehaviour {
             float jumpVelocity = Mathf.Sqrt(-1 * gravity * 2);
             velocityY = jumpVelocity;
 
+            
+
             maxJetpack -= Time.deltaTime * 5f;
 
             if (maxJetpack < 0)
+            {
                 hasJetPack = false;
+                audioJetPack.Stop();
+            }
         }
     }
 
@@ -131,6 +149,8 @@ public class SinglePlayerController : MonoBehaviour {
         {
             animator.SetTrigger("IsShoot");
             Fire();
+            audioS.clip = audioClipGun;
+            audioS.Play();
         }
     }
 
