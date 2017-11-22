@@ -20,13 +20,21 @@ public class LobbyController : NetworkBehaviour
     private static LobbyController instance;
     public static LobbyController Instance { get { return instance; } }
 
+    private bool hasAddPlayer = false;
+
     private void Awake()
     {
-        instance = this;
+        instance = this;        
     }
 
     private void FixedUpdate()
     {
+        if(!hasAddPlayer && PlayerNetworkSetup.Instance != null && NetworkManagerHUD.Instance != null)
+        {
+            PlayerNetworkSetup.Instance.CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
+            hasAddPlayer = true;
+        }
+
         if(textPanel != null)
             textPanel.text = textBox;
     }

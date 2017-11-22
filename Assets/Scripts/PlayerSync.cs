@@ -26,7 +26,10 @@ public class PlayerSync : NetworkBehaviour {
     {
         if (!ready)
         {
-            playerTransform.position = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+            Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+            playerTransform.position = startPoint;
+            syncPos = startPoint;
+            lastPos = startPoint;
             ready = true;
         }
 
@@ -52,10 +55,17 @@ public class PlayerSync : NetworkBehaviour {
     void TransmitPosition()
     {
         //Verifica se o o jogador andou mais que a variavel Threshold
-        if(isLocalPlayer && Vector3.Distance(playerTransform.position, lastPos) < threshold)
+        if(isLocalPlayer )//&& Vector3.Distance(playerTransform.position, lastPos) < threshold)
         {
             CmdProvidePositionToServer(playerTransform.position);
             lastPos = playerTransform.position;
         }        
+    }
+
+    public void Reset()
+    {
+        playerTransform.position = new Vector3(0, 0, 0);
+        lastPos = new Vector3(0, 0, 0);
+        syncPos = new Vector3(0, 0, 0);
     }
 }

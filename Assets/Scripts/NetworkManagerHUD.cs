@@ -21,9 +21,9 @@ public class NetworkManagerHUD : NetworkManager
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        manager = GetComponent<NetworkManager>();
         instance = this;
+        DontDestroyOnLoad(gameObject);
+        manager = GetComponent<NetworkManager>();       
     }
 
     public void CustomStartHost()

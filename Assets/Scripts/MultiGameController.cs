@@ -61,6 +61,14 @@ public class MultiGameController : NetworkBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        if (SceneManager.GetActiveScene().name.Equals("Multi_fase_1"))
+            currentStage = 1;
+        else if(!SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
+        {
+            openDoor = false;
+            currentStage++;
+        }
+
         if (SceneManager.GetActiveScene().name.Equals("Menu"))
             Destroy(gameObject);
 
@@ -73,17 +81,14 @@ public class MultiGameController : NetworkBehaviour
 
         if (SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
         {
-            gameOver = true;      
-            gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
+            gameOver = true;
+            //gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
+            if(GameObject.Find("MainCamera"))
+                GameObject.Find("MainCamera").SetActive(false);
             GetComponent<CharacterController>().enabled = false;
             GetComponent<PlayerController>().enabled = false;
             GetComponent<MultiGameController>().enabled = false;
-        }
-        else
-        {
-            openDoor = false;
-            currentStage++;
-        }
+        }      
     }
 
     [Command]

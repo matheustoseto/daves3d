@@ -31,9 +31,17 @@ public class PlayerNetworkSetup : NetworkBehaviour {
         if (isLocalPlayer)
         {
             instance = this;
-            CmdGameStart(NetworkManagerHUD.Instance.playerName);
+            //CmdGameStart(NetworkManagerHUD.Instance.playerName);
         }
 
+    }
+
+    private void Awake()
+    {
+        if (isLocalPlayer)
+        {
+            instance = this;
+        }
     }
 
     private void FixedUpdate()
@@ -43,7 +51,20 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
     [Command]
     public void CmdGameStart(string playerName)
-    {      
+    {
+        if (playerName.Equals(NetworkManagerHUD.Instance.playerName))
+        {
+            if (NetworkManagerHUD.Instance.gameStart)
+            {
+                isViewer = true;
+                SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+            }
+            else
+            {
+                CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
+            }
+        }
+
         RpcGameStart(playerName, NetworkManagerHUD.Instance.gameStart);
     }
 
@@ -52,6 +73,13 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     {
         if (playerName.Equals(NetworkManagerHUD.Instance.playerName))
         {
+            //GAP
+            foreach (GameObject obj in GameObject.FindGameObjectsWithTag("PlayerLobby"))
+            {
+                if (obj.transform.Find("PlayerName").GetComponent<InputField>().text.Equals(playerName))
+                    return;
+            }
+
             if (isReady)
             {
                 isViewer = true;
@@ -72,7 +100,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
     [Command]
     public void CmdAddPlayer(string playerName)
-    {
+    {      
         LobbyController.Instance.CmdAddPlayer(playerName);
     }
 
@@ -121,7 +149,6 @@ public class PlayerNetworkSetup : NetworkBehaviour {
                 GetComponent<CharacterController>().enabled = true;
                 GetComponent<PlayerController>().enabled = true;
                 GetComponent<MultiGameController>().enabled = true;
-                //goPlayerName.SetActive(true);
                 playerCam.enabled = true;
                 playerAudio.enabled = true;
 
@@ -136,13 +163,24 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
         if (SceneManager.GetActiveScene().name.Equals("LobbyMatch"))
         {
+            playerCam.enabled = false;
+            playerAudio.enabled = false;
             NetworkManagerHUD.Instance.gameStart = false;
             MultiGameController.Instance.gameOver = false;
+            GetComponent<PlayerSync>().enabled = false;
+            GetComponent<PlayerSync>().Reset();           
+            GetComponent<PlayerSync>().ready = false;
+            
+            MultiGameController.currentStage = 1;
+            MultiGameController.Instance.score = 0;
 
             if(isServer)
                 NetworkManagerHUD.Instance.playerList.Clear();
 
-            CmdGameStart(NetworkManagerHUD.Instance.playerName);
+            NetworkServer.SpawnObjects();
+
+            //if(isLocalPlayer)
+                //CmdGameStart(NetworkManagerHUD.Instance.playerName);
         }
     }
 
