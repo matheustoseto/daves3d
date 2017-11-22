@@ -36,3 +36,5 @@ sysinfo.txt
 Daves3d_Data/
 
 Daves3d\.exe
+*.exe
+/Dave_Data
