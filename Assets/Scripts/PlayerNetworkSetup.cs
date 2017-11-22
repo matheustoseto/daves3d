@@ -261,4 +261,23 @@ public class PlayerNetworkSetup : NetworkBehaviour {
         foreach (Player p in NetworkManagerHUD.Instance.playerList)
             RpcAddScorePanel(p);
     }
+
+    [Command]
+    public void CmdOpenDoor()
+    {
+        OpenDoor();
+        RpcOpenDoor();
+    }
+
+    [ClientRpc]
+    public void RpcOpenDoor()
+    {
+        OpenDoor();
+    }
+
+    public void OpenDoor()
+    {
+        MultiGameController.Instance.portal.SetActive(true);
+        MultiGameController.Instance.openDoor = true;
+    }
 }

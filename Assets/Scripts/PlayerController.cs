@@ -188,6 +188,9 @@ public class PlayerController : NetworkBehaviour {
         if (other.gameObject.tag.Equals("PickUp"))
             CmdSetDestroy(other.gameObject);
 
+        if (other.gameObject.tag.Equals("Cup"))
+            CmdSetDestroy(other.gameObject);
+
         if (other.gameObject.tag.Equals("Pistol"))
         {
             hasPistol = true;
