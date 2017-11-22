@@ -37,6 +37,7 @@ public class SinglePlayerController : MonoBehaviour {
     public AudioClip audioClipCup;
     public AudioClip audioClipDoor;
     public AudioClip audioClipGun;
+    
 
     void Start()
     {

@@ -32,6 +32,11 @@ public class SingleGameController : MonoBehaviour {
 
     private static SingleGameController instance = null;
 
+    public AudioSource audioS;
+
+    public AudioClip audioClipDie;
+    public AudioClip audioClipgameOver;
+
     public static SingleGameController Instance
     {
         get { return instance; }
@@ -135,9 +140,22 @@ public class SingleGameController : MonoBehaviour {
     {
         if (!removeLife)
         {
+            if (Lifes > 1)
+            {
+                audioS.clip = audioClipDie;
+                audioS.Play();
+            }
+            else
+            {
+                audioS.clip = audioClipgameOver;
+                audioS.Play();
+            }
+           
             removeLife = true;
             Lifes--;
             player.transform.position = player.GetComponent<SinglePlayerController>().startPoint;
+
+            
 
             if (Lifes <= 0)
                 SceneManager.LoadScene("Single_GameOver", LoadSceneMode.Single);
@@ -166,7 +184,7 @@ public class SingleGameController : MonoBehaviour {
         if (other.gameObject.tag.Equals("GroundDie"))
         {
             RemoveLife();
-        }
+        }   
     }
 
     void AddScoreAndDestroy(GameObject obj)
