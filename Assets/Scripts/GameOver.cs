@@ -11,13 +11,5 @@ public class GameOver : MonoBehaviour {
             SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        if(level == 6)
-        {
-            audioS.Play();
-        }
-        Debug.Log("Cena: " + level);
-            
-    }
+
 }
