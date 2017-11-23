@@ -8,16 +8,16 @@ public class EnemyMultiplayer : NetworkBehaviour
     public Transform bulletSpawn;
     public Animator animator;
 
-    private static EnemyMultiplayer instance = null;
-    public static EnemyMultiplayer Instance { get { return instance; } }
+    //private static EnemyMultiplayer instance = null;
+    //public static EnemyMultiplayer Instance { get { return instance; } }
 
     private float timer = 1f;
 
-    public int score = 10;
+    //public int score = 10;
 
     private void Start()
     {
-        instance = this;
+        //instance = this;
     }
 
     void OnTriggerEnter(Collider other)
@@ -35,7 +35,9 @@ public class EnemyMultiplayer : NetworkBehaviour
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag.Equals("Player"))
-            CmdFire();
+        {
+            PlayerNetworkSetup.Instance.CmdFire(gameObject);
+        }          
     }
 
     [Command]

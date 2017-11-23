@@ -213,9 +213,10 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     }
 
     [Command]
-    public void CmdFire()
+    public void CmdFire(GameObject obj)
     {
-        EnemyMultiplayer.Instance.CmdFire();
+        //EnemyMultiplayer.Instance.CmdFire();
+        obj.GetComponent<EnemyMultiplayer>().CmdFire();
     }
 
     [Command]
