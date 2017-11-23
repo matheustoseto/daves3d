@@ -16,7 +16,7 @@ Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll 
 Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.115 seconds
+- Completed reload, in  0.112 seconds
 Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
@@ -47,10 +47,10 @@ desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.671549 ms
+UnloadTime: 0.710310 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 97bc -> priority: 1 
-  Thread -> id: 6efc -> priority: 1 
+  Thread -> id: b7a8 -> priority: 1 
+  Thread -> id: 7dec -> priority: 1 
 Initialize engine version: 5.4.2f2 (b7e030c65c9b)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -101,26 +101,26 @@ desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
 <RI> Input initialized.
 <RI> Initialized touch support.
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.498668 ms
+UnloadTime: 3.490856 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 614.
-Total: 0.303774 ms (FindLiveObjects: 0.032150 ms CreateObjectMapping: 0.018929 ms MarkObjects: 0.244582 ms  DeleteObjects: 0.003305 ms)
+Total: 0.311286 ms (FindLiveObjects: 0.023737 ms CreateObjectMapping: 0.019830 ms MarkObjects: 0.260807 ms  DeleteObjects: 0.003004 ms)
 
-UnloadTime: 0.916132 ms
+UnloadTime: 0.658629 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 8e70 -> priority: 1 
-  Thread -> id: c7b0 -> priority: 1 
+  Thread -> id: 378c -> priority: 1 
+  Thread -> id: 9d0 -> priority: 1 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.215436 ms
+UnloadTime: 0.220544 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 683.
-Total: 0.422460 ms (FindLiveObjects: 0.014122 ms CreateObjectMapping: 0.020431 ms MarkObjects: 0.367173 ms  DeleteObjects: 0.019830 ms)
+Total: 0.347342 ms (FindLiveObjects: 0.013821 ms CreateObjectMapping: 0.019230 ms MarkObjects: 0.308882 ms  DeleteObjects: 0.004807 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.854424 ms
+UnloadTime: 4.145579 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 614.
-Total: 0.322403 ms (FindLiveObjects: 0.023136 ms CreateObjectMapping: 0.021633 ms MarkObjects: 0.272525 ms  DeleteObjects: 0.003305 ms)
+Total: 0.354854 ms (FindLiveObjects: 0.030046 ms CreateObjectMapping: 0.021032 ms MarkObjects: 0.298065 ms  DeleteObjects: 0.003906 ms)
 
 Network configuration mismatch detected. The number of networked scripts on the client does not match the number of networked scripts on the server. This could be caused by lazy loading of scripts on the client. This warning can be disabled by the checkbox in NetworkManager Script CRC Check.
  
@@ -191,56 +191,20 @@ CRC Remote Dump LobbyController : 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
-UnloadTime: 0.229859 ms
+UnloadTime: 0.508695 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 683.
-Total: 0.346141 ms (FindLiveObjects: 0.015023 ms CreateObjectMapping: 0.021934 ms MarkObjects: 0.302873 ms  DeleteObjects: 0.006009 ms)
+Total: 0.880977 ms (FindLiveObjects: 0.042967 ms CreateObjectMapping: 0.065502 ms MarkObjects: 0.758986 ms  DeleteObjects: 0.013220 ms)
 
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.177240 ms
-UnloadTime: 0.493371 ms
+Unnlladiing   U Uususd Serialilzzed files ( (Seririalized fil nownow adoeded 0 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2301.
-Total: 0.868958 ms (FindLiveObjects: 0.118985 ms CreateObjectMapping: 0.043568 ms MarkObjects: 0.686573 ms  DeleteObjects: 0.019530 ms)
+UnloadTime: 0.386704 ms
+UnloadTime: 1.306742 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2813.
+Total: 0.977127 ms (FindLiveObjects: 0.143324 ms CreateObjectMapping: 0.069108 ms MarkObjects: 0.758986 ms  DeleteObjects: 0.005408 ms)
 
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2301.
-Total: 0.728638 ms (FindLiveObjects: 0.082028 ms CreateObjectMapping: 0.057990 ms MarkObjects: 0.583812 ms  DeleteObjects: 0.004807 ms)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SingleGameController.AddScoreAndDestroy (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at SingleGameController.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2813.
+Total: 1.066667 ms (FindLiveObjects: 0.166159 ms CreateObjectMapping: 0.048676 ms MarkObjects: 0.842216 ms  DeleteObjects: 0.009615 ms)
 
