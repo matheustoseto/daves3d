@@ -37,7 +37,9 @@ public class SinglePlayerController : MonoBehaviour {
     public AudioClip audioClipCup;
     public AudioClip audioClipDoor;
     public AudioClip audioClipGun;
-    
+    public AudioClip audioClipPistol;
+    public AudioClip audioClipJet;
+
 
     void Start()
     {
@@ -170,12 +172,17 @@ public class SinglePlayerController : MonoBehaviour {
             Destroy(other.gameObject);
             pistolPrefab.SetActive(true);
             maxJetpack = 50f;
+            audioS.clip = audioClipPistol;
+            audioS.Play();
+            
         }
         if (other.gameObject.tag.Equals("JetPack"))
         {
             hasJetPack = true;
             Destroy(other.gameObject);
             jetPackPrefab.SetActive(true);
+            audioS.clip = audioClipJet;
+            audioS.Play();
         }
 
         if (other.gameObject.tag.Equals("PickUp"))

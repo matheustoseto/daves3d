@@ -34,6 +34,10 @@ public class MultiGameController : NetworkBehaviour
 
     public GameObject ScoresPanel;
 
+    public AudioSource audioS;
+
+    public AudioClip audioClipDie;
+
     private static MultiGameController instance = null;
 
     public static MultiGameController Instance
@@ -173,6 +177,8 @@ public class MultiGameController : NetworkBehaviour
 
     public void RemoveLife()
     {
+        audioS.clip = audioClipDie;
+        audioS.Play();
         GetComponent<PlayerSync>().StartPosition();
     }
 

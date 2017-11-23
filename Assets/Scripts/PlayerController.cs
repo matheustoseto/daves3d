@@ -34,6 +34,15 @@ public class PlayerController : NetworkBehaviour {
     public GameObject pistolPrefab;
     public GameObject jetPackPrefab;
 
+    public AudioSource audioS;
+    public AudioSource audioJetPack;
+    public AudioClip audioClipPickUp;
+    public AudioClip audioClipCup;
+    public AudioClip audioClipPistol;
+    public AudioClip audioClipJet;
+    public AudioClip audioClipGun;
+    public AudioClip audioClipDoor;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -75,6 +84,15 @@ public class PlayerController : NetworkBehaviour {
 
         if (Input.GetMouseButton(1))
             JetPack();
+
+        if (Input.GetMouseButtonDown(1) && hasJetPack)
+        {
+            audioJetPack.Play();
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            audioJetPack.Stop();
+        }
     }
 
     void Move(Vector2 dir)
@@ -131,6 +149,8 @@ public class PlayerController : NetworkBehaviour {
             CmdSetAnimTrigger("IsShoot");
             CmdFire();
             timerBullet = 0.5f;
+            audioS.clip = audioClipGun;
+            audioS.Play();
         }
     }
 
@@ -186,23 +206,45 @@ public class PlayerController : NetworkBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("PickUp"))
+        {
+            audioS.clip = audioClipPickUp;
+            audioS.Play();
             CmdSetDestroy(other.gameObject);
-
+        }
+        
         if (other.gameObject.tag.Equals("Cup"))
+        {
+            audioS.clip = audioClipCup;
+            audioS.Play();
             CmdSetDestroy(other.gameObject);
+        }
 
         if (other.gameObject.tag.Equals("Pistol"))
         {
+            audioS.clip = audioClipPistol;
+            audioS.Play();
             hasPistol = true;
             CmdSetDestroy(other.gameObject);
             CmdActiveItens(1);
         }
         if (other.gameObject.tag.Equals("JetPack"))
         {
+            audioS.clip = audioClipJet;
+            audioS.Play();
             hasJetPack = true;
             CmdSetDestroy(other.gameObject);
             CmdActiveItens(2);
             maxJetpack = 50f;
+        }
+        if (other.gameObject.tag.Equals("Door"))
+        {
+            GameObject door = GameObject.FindGameObjectWithTag("Door");
+            GameObject portal = door.transform.GetChild(1).gameObject;
+            if (portal.activeSelf == true)
+            {
+                audioS.clip = audioClipDoor;
+                audioS.Play();
+            }
         }
     }
 

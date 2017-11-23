@@ -11,6 +11,10 @@ public class ButtonSwitch : NetworkBehaviour
     public Material red;
     public Material green;
 
+    public AudioSource audioS;
+
+    
+
     private static ButtonSwitch instance;
     public static ButtonSwitch Instance { get { return instance; } }
 
@@ -23,6 +27,7 @@ public class ButtonSwitch : NetworkBehaviour
     {
         if (other.gameObject.tag.Equals("Player") && !bridgeReady)
         {
+            audioS.Play();
             PlayerNetworkSetup.Instance.CmdButton(true, idButton);
             Bridge.Instance.SendAddBridgeStage();
         }

@@ -2,23 +2,23 @@ Initialize engine version: 5.4.2f2 (b7e030c65c9b)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Radeon (TM) RX 480 Graphics (ID=0x67df)
+    Renderer: AMD Radeon R7 M265 (ID=0x6900)
     Vendor:   ATI
-    VRAM:     3072 MB
+    VRAM:     2035 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.039 seconds
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.083 seconds
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Guilherme\Documents\Projetos Unity\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
@@ -43,17 +43,28 @@ Add a delegate to SceneManager.sceneLoaded instead to get notifications after sc
  
 (Filename:  Line: 375)
 
-desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.814272 ms
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 312c -> priority: 1 
-  Thread -> id: abc8 -> priority: 1 
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.361918 ms
+UnloadTime: 0.961629 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2e20 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.352755 ms
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 883.
-Total: 0.268920 ms (FindLiveObjects: 0.048075 ms CreateObjectMapping: 0.018328 ms MarkObjects: 0.190497 ms  DeleteObjects: 0.010516 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 614.
+Total: 0.535291 ms (FindLiveObjects: 0.039870 ms CreateObjectMapping: 0.039081 ms MarkObjects: 0.442523 ms  DeleteObjects: 0.005526 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.307910 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 683.
+Total: 0.447260 ms (FindLiveObjects: 0.018158 ms CreateObjectMapping: 0.028027 ms MarkObjects: 0.383704 ms  DeleteObjects: 0.016579 ms)
+
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.211826 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 3964.
+Total: 1.168087 ms (FindLiveObjects: 0.167771 ms CreateObjectMapping: 0.054871 ms MarkObjects: 0.933996 ms  DeleteObjects: 0.011053 ms)
 
