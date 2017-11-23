@@ -192,8 +192,13 @@ public class SinglePlayerController : MonoBehaviour {
 
         if (other.gameObject.tag.Equals("Door"))
         {
-            audioS.clip = audioClipDoor;
-            audioS.Play();
+            GameObject door = GameObject.FindGameObjectWithTag("Door");
+            GameObject portal = door.transform.GetChild(1).gameObject;
+            if(portal.activeSelf == true)
+            {
+                audioS.clip = audioClipDoor;
+                audioS.Play();
+            }
         }
     }
 }
