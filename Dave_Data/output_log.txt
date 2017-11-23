@@ -2,23 +2,23 @@ Initialize engine version: 5.4.2f2 (b7e030c65c9b)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c82)
-    Vendor:   NVIDIA
+    Renderer: Radeon (TM) RX 480 Graphics (ID=0x67df)
+    Vendor:   ATI
     VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading E:\GitHub\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading E:\GitHub\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.069 seconds
-Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: E:\GitHub\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Dave\daves3d\Dave_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.039 seconds
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Dave\daves3d\Dave_Data\Managed\System.dll (this message is harmless)
 OnLevelWasLoaded was found on SinglePlayerController
 This message has been deprecated and will be removed in a later version of Unity.
 Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
@@ -43,82 +43,17 @@ Add a delegate to SceneManager.sceneLoaded instead to get notifications after sc
  
 (Filename:  Line: 375)
 
-desktop: 1600x900 30Hz; virtual: 1600x900 at 0,0
+desktop: 1920x1080 59Hz; virtual: 3840x1171 at 0,-91
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.639974 ms
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 28a0 -> priority: 1 
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.523852 ms
+UnloadTime: 0.814272 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 312c -> priority: 1 
+  Thread -> id: abc8 -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.361918 ms
 
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 614.
-Total: 0.364529 ms (FindLiveObjects: 0.020479 ms CreateObjectMapping: 0.024233 ms MarkObjects: 0.296948 ms  DeleteObjects: 0.018089 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.273738 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 683.
-Total: 0.468973 ms (FindLiveObjects: 0.022185 ms CreateObjectMapping: 0.030718 ms MarkObjects: 0.407535 ms  DeleteObjects: 0.007509 ms)
-
-Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.299745 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 4110.
-Total: 1.294284 ms (FindLiveObjects: 0.164174 ms CreateObjectMapping: 0.065533 ms MarkObjects: 0.993581 ms  DeleteObjects: 0.070653 ms)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at PlayerNetworkSetup.CmdFire (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at PlayerNetworkSetup.InvokeCmdCmdFire (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.HandleCommand (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnCommandMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleReader (UnityEngine.Networking.NetworkReader reader, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleBytes (System.Byte[] buffer, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.TransportRecieve (System.Byte[] bytes, Int32 numBytes, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer+ServerSimpleWrapper.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.HandleData (Int32 connectionId, Int32 channelId, Int32 receivedSize, Byte error) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at PlayerNetworkSetup.CmdFire (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at PlayerNetworkSetup.InvokeCmdCmdFire (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.HandleCommand (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnCommandMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleReader (UnityEngine.Networking.NetworkReader reader, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleBytes (System.Byte[] buffer, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.TransportRecieve (System.Byte[] bytes, Int32 numBytes, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer+ServerSimpleWrapper.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.HandleData (Int32 connectionId, Int32 channelId, Int32 receivedSize, Byte error) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at PlayerNetworkSetup.CmdFire (UnityEngine.GameObject obj) [0x00000] in <filename unknown>:0 
-  at PlayerNetworkSetup.InvokeCmdCmdFire (UnityEngine.Networking.NetworkBehaviour obj, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.HandleCommand (Int32 cmdHash, UnityEngine.Networking.NetworkReader reader) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnCommandMessage (UnityEngine.Networking.NetworkMessage netMsg) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleReader (UnityEngine.Networking.NetworkReader reader, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.HandleBytes (System.Byte[] buffer, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkConnection.TransportRecieve (System.Byte[] bytes, Int32 numBytes, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer+ServerSimpleWrapper.OnData (UnityEngine.Networking.NetworkConnection conn, Int32 receivedSize, Int32 channelId) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.HandleData (Int32 connectionId, Int32 channelId, Int32 receivedSize, Byte error) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServerSimple.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkServer.Update () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 883.
+Total: 0.268920 ms (FindLiveObjects: 0.048075 ms CreateObjectMapping: 0.018328 ms MarkObjects: 0.190497 ms  DeleteObjects: 0.010516 ms)
 
