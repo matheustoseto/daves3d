@@ -104,12 +104,6 @@ public class MultiGameController : NetworkBehaviour
         NetworkManager.singleton.ServerChangeScene("Multi_GameOver");
     }
 
-    public void OpenDoor()
-    {
-        door.GetComponent<MeshRenderer>().material = materialOpenDoor;
-        openDoor = true;
-    }
-
     void OnGUI()
     {
         int space = 20;
@@ -186,12 +180,12 @@ public class MultiGameController : NetworkBehaviour
     {
         if (other.gameObject.tag.Equals("PickUp"))
         {
-            AddScoreAndDestroy(other.gameObject);
+            AddScore(other.gameObject.GetComponent<ScoreMulti>().points);
         }
         if (other.gameObject.tag.Equals("Cup"))
         {
-            AddScoreAndDestroy(other.gameObject);
-            OpenDoor();
+            AddScore(other.gameObject.GetComponent<ScoreMulti>().points);
+            PlayerNetworkSetup.Instance.CmdOpenDoor();
         }
         if (openDoor && other.gameObject.tag.Equals("Door"))
         {
@@ -203,9 +197,4 @@ public class MultiGameController : NetworkBehaviour
         }
     }
 
-    void AddScoreAndDestroy(GameObject obj)
-    {
-        AddScore(obj.GetComponent<ScoreMulti>().points);
-        Destroy(obj);
-    }
 }
