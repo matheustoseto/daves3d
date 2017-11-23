@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
 
     public AudioSource audioS;
-    private void OnGUI()
+
+    public float timer = 10f;
+    public Text text;
+
+    private void Update()
     {
-        if (GUI.Button(new Rect((Screen.width / 2) - (500 / 2), Screen.height / 2 + 70, 500, 50), "Clique aqui para voltar ao menu!"))
+        if (timer >= 0)
+            timer -= Time.deltaTime;
+
+        text.text = ((int)timer).ToString();
+
+        if (timer < 0)
             SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
-
-
 }
