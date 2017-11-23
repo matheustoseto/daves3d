@@ -219,7 +219,7 @@ public class PlayerController : NetworkBehaviour {
             CmdSetDestroy(other.gameObject);
         }
 
-        if (other.gameObject.tag.Equals("Pistol"))
+        if (other.gameObject.tag.Equals("Pistol") && !hasPistol)
         {
             audioS.clip = audioClipPistol;
             audioS.Play();
@@ -227,7 +227,7 @@ public class PlayerController : NetworkBehaviour {
             CmdSetDestroy(other.gameObject);
             CmdActiveItens(1);
         }
-        if (other.gameObject.tag.Equals("JetPack"))
+        if (other.gameObject.tag.Equals("JetPack") && !hasJetPack)
         {
             audioS.clip = audioClipJet;
             audioS.Play();
