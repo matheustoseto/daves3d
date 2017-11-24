@@ -200,8 +200,13 @@ public class PlayerNetworkSetup : NetworkBehaviour {
         }
 
         if (SceneManager.GetActiveScene().name.Equals("Multi_fase_1"))
-            loadMultiPlayer = true;
+        {
+            if (isViewer)
+                CmdDeletePlayer(gameObject);
 
+            loadMultiPlayer = true;
+        }
+            
         if (SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
             loadMultiPlayer = false;
     }
