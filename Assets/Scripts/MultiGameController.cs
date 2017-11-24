@@ -102,8 +102,7 @@ public class MultiGameController : NetworkBehaviour
             GetComponent<PlayerController>().enabled = false;
             GetComponent<MultiGameController>().enabled = false;
 
-            if(isServer)
-                GetComponent<PlayerNetworkSetup>().timerGameOver = 300f;
+            GetComponent<PlayerNetworkSetup>().timerGameOver = 600f;
         }      
     }
 

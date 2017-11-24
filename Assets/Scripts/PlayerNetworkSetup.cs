@@ -23,7 +23,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     public GameObject goPlayerName;
 
     [SyncVar]
-    public float timerGameOver = 800f;
+    public float timerGameOver = 600f;
 
     public bool loadMultiPlayer = false;
 
