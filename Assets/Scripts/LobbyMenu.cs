@@ -11,10 +11,13 @@ public class LobbyMenu : NetworkBehaviour
 
     private void Start()
     {
-        Grid = GameObject.FindGameObjectWithTag("LobbyPanel").GetComponent<GridLayoutGroup>();
-        gameObject.transform.SetParent(Grid.transform);
-        gameObject.transform.localScale = new Vector3(1, 1, 1);
-        gameObject.transform.localPosition = Vector3.zero;
+        if (GameObject.FindGameObjectWithTag("LobbyPanel"))
+        {
+            Grid = GameObject.FindGameObjectWithTag("LobbyPanel").GetComponent<GridLayoutGroup>();
+            gameObject.transform.SetParent(Grid.transform);
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            gameObject.transform.localPosition = Vector3.zero;
+        }    
     }
 
     public void BackLobbyMenu()

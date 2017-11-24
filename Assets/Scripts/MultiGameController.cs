@@ -27,9 +27,6 @@ public class MultiGameController : NetworkBehaviour
     public int score = 0;
     public Font font;
 
-    [SyncVar]
-    public float timerGameOver = 300f;
-
     public static int currentStage = 1;
 
     public Texture2D jackPackBar_1;
@@ -66,11 +63,7 @@ public class MultiGameController : NetworkBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (isServer && timerGameOver >= 0)
-            timerGameOver -= Time.deltaTime;
-    }
+ 
 
     private void OnLevelWasLoaded(int level)
     {
@@ -110,7 +103,7 @@ public class MultiGameController : NetworkBehaviour
             GetComponent<MultiGameController>().enabled = false;
 
             if(isServer)
-                timerGameOver = 300f;
+                GetComponent<PlayerNetworkSetup>().timerGameOver = 300f;
         }      
     }
 
@@ -131,11 +124,7 @@ public class MultiGameController : NetworkBehaviour
         if (!gameOver)
         {
             GUI.Label(new Rect(15, 15, 300, 50), score.ToString(fmt));
-            for (int i = 0; i < Lifes; i++)
-            {
-                GUI.Label(new Rect(Screen.width - 200 + (30 * i) + space, 15, 100, 100), ((int)timerGameOver).ToString());
-                space += 20;
-            }
+
             GUI.Label(new Rect((Screen.width / 2) - (150 / 2), 15, 300, 50), "Level : " + currentStage);
 
             if (player.GetComponent<PlayerController>().hasPistol)

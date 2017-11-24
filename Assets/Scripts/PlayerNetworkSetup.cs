@@ -22,6 +22,11 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     public TextMesh textPlayerName;
     public GameObject goPlayerName;
 
+    [SyncVar]
+    public float timerGameOver = 800f;
+
+    public bool loadMultiPlayer = false;
+
     public GameObject ScoresPanel;
 
     private void Start()
@@ -46,7 +51,11 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
     private void FixedUpdate()
     {
-        goPlayerName.transform.localEulerAngles = transform.localEulerAngles;
+        if (loadMultiPlayer && isServer && timerGameOver >= 0)
+            timerGameOver -= Time.deltaTime;
+
+        if (timerGameOver < 0 && isServer)
+            NetworkManager.singleton.ServerChangeScene("Multi_GameOver");
     }
 
     [Command]
@@ -176,15 +185,25 @@ public class PlayerNetworkSetup : NetworkBehaviour {
             GetComponent<PlayerSync>().enabled = false;
             GetComponent<PlayerSync>().Reset();           
             GetComponent<PlayerSync>().ready = false;
-                     
-            if(isServer)
+
+            loadMultiPlayer = false;
+
+            if (isServer)
                 NetworkManagerHUD.Instance.playerList.Clear();
 
             NetworkServer.SpawnObjects();
 
+            timerGameOver = 600f;
+
             //if(isLocalPlayer)
-                //CmdGameStart(NetworkManagerHUD.Instance.playerName);
+            //CmdGameStart(NetworkManagerHUD.Instance.playerName);
         }
+
+        if (SceneManager.GetActiveScene().name.Equals("Multi_fase_1"))
+            loadMultiPlayer = true;
+
+        if (SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
+            loadMultiPlayer = false;
     }
 
     [Command]
@@ -280,5 +299,11 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     {
         MultiGameController.Instance.portal.SetActive(true);
         MultiGameController.Instance.openDoor = true;
+    }
+
+    private void OnGUI()
+    {
+        if(loadMultiPlayer && isLocalPlayer)
+            GUI.Label(new Rect(Screen.width - 100, 15, 100, 100), ((int)timerGameOver).ToString());
     }
 }
