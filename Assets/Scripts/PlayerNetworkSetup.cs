@@ -39,6 +39,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
             //CmdGameStart(NetworkManagerHUD.Instance.playerName);
         }
 
+        Debug.Log("Nome Scene: "+SceneManager.GetActiveScene().name);
     }
 
     private void Awake()
