@@ -10,9 +10,7 @@ public class Enemy : MonoBehaviour {
     public bool fireReady = true;
     private float timer = 1f;
 
-    public AudioSource audioS;
-    public AudioClip clipShot;
-
+   
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -62,8 +60,7 @@ public class Enemy : MonoBehaviour {
             var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 30;
             Destroy(bullet, 2.0f);
-            audioS.clip = clipShot;
-            audioS.Play();
+           
             fireReady = false;
             timer = 1f;
         }

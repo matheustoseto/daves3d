@@ -15,8 +15,7 @@ public class EnemyMultiplayer : NetworkBehaviour
 
     //public int score = 10;
 
-    public AudioSource audioS;
-    public AudioClip clipShot;
+    
 
     private void Start()
     {
@@ -51,8 +50,7 @@ public class EnemyMultiplayer : NetworkBehaviour
 
         if (timer < 0f)
         {
-            audioS.clip = clipShot;
-            audioS.Play();
+            
 
             // Create the Bullet from the Bullet Prefab
             var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
