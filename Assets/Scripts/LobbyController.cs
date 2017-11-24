@@ -31,6 +31,7 @@ public class LobbyController : NetworkBehaviour
     {
         if(!hasAddPlayer && PlayerNetworkSetup.Instance != null && NetworkManagerHUD.Instance != null)
         {
+            Debug.Log(NetworkManagerHUD.Instance.playerName);
             PlayerNetworkSetup.Instance.CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
             hasAddPlayer = true;
         }
