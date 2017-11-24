@@ -12,8 +12,6 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     private static PlayerNetworkSetup instance;
     public static PlayerNetworkSetup Instance { get { return instance; } }
 
-    public bool isViewer = false;
-
     public Material hatBlue;
     public Material hatRed;
     public Material hatGreen;
@@ -29,26 +27,27 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
     public GameObject ScoresPanel;
 
+    [SyncVar]
+    public bool gameStart = false;
+
     private void Start()
     {
+        if (gameStart)
+        {
+            NetworkServer.SpawnObjects();
+            CmdDeletePlayer(gameObject);
+        }
+            
         DontDestroyOnLoad(gameObject);
 
         if (isLocalPlayer)
-        {
-            instance = this;
-            //CmdGameStart(NetworkManagerHUD.Instance.playerName);
-        }
-
-        Debug.Log("Viewer: "+NetworkManagerHUD.Instance.gameStart);
-        Debug.Log("Nome Scene: "+SceneManager.GetActiveScene().name);
+            instance = this;     
     }
 
     private void Awake()
     {
         if (isLocalPlayer)
-        {
             instance = this;
-        }
     }
 
     private void FixedUpdate()
@@ -65,18 +64,11 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     {
         if (playerName.Equals(NetworkManagerHUD.Instance.playerName))
         {
-            if (NetworkManagerHUD.Instance.gameStart)
-            {
-                isViewer = true;
-                //SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
-            }
-            else
-            {
+            if (!gameStart)
                 CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
-            }
         }
 
-        RpcGameStart(playerName, NetworkManagerHUD.Instance.gameStart);
+        RpcGameStart(playerName, gameStart);
     }
 
     [ClientRpc]
@@ -91,15 +83,8 @@ public class PlayerNetworkSetup : NetworkBehaviour {
                     return;
             }
 
-            if (isReady)
-            {
-                isViewer = true;
-                //SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
-            }
-            else
-            {
+            if (!isReady)
                 CmdAddPlayer(NetworkManagerHUD.Instance.playerName);
-            }
         }
     }
 
@@ -152,21 +137,14 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     {
         if (!SceneManager.GetActiveScene().name.Equals("LobbyMatch") && isLocalPlayer)
         {
-            if (!isViewer)
-            {
-                if (GameObject.Find("Scene Camera"))
-                    GameObject.Find("Scene Camera").SetActive(false);
+            if (GameObject.Find("Scene Camera"))
+                GameObject.Find("Scene Camera").SetActive(false);
 
-                GetComponent<CharacterController>().enabled = true;
-                GetComponent<PlayerController>().enabled = true;
-                GetComponent<MultiGameController>().enabled = true;
-                playerCam.enabled = true;
-                playerAudio.enabled = true;
-
-            } else
-            {
-                CmdDeletePlayer(gameObject);
-            }
+            GetComponent<CharacterController>().enabled = true;
+            GetComponent<PlayerController>().enabled = true;
+            GetComponent<MultiGameController>().enabled = true;
+            playerCam.enabled = true;
+            playerAudio.enabled = true;
         }
 
         if (!SceneManager.GetActiveScene().name.Equals("LobbyMatch"))
@@ -176,7 +154,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
         {
             playerCam.enabled = false;
             playerAudio.enabled = false;
-            NetworkManagerHUD.Instance.gameStart = false;
+            gameStart = false;
             if(MultiGameController.Instance != null)
             {
                 MultiGameController.currentStage = 1;
@@ -202,15 +180,8 @@ public class PlayerNetworkSetup : NetworkBehaviour {
         }
 
         if (SceneManager.GetActiveScene().name.Equals("Multi_fase_1"))
-        {
-            Debug.Log(isViewer);
-            if (isViewer){
-                CmdDeletePlayer(gameObject);
-                Destroy(gameObject);
-            }
             loadMultiPlayer = true;
-        }
-            
+
         if (SceneManager.GetActiveScene().name.Equals("Multi_GameOver"))
             loadMultiPlayer = false;
     }

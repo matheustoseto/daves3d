@@ -17,7 +17,7 @@ public class NetworkManagerHUD : NetworkManager
     private static NetworkManagerHUD instance;
     public static NetworkManagerHUD Instance { get { return instance; } }
 
-    public bool gameStart = false;
+    //public bool gameStart = false;
 
     void Awake()
     {

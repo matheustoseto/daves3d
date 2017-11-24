@@ -206,7 +206,8 @@ public class LobbyController : NetworkBehaviour
     {
         if (isServer && ReadyGame())
         {
-            NetworkManagerHUD.Instance.gameStart = true;
+            //NetworkManagerHUD.Instance.gameStart = true;
+            PlayerNetworkSetup.Instance.gameStart = true;
 
             NetworkManager.singleton.ServerChangeScene("Multi_fase_1");
 
@@ -275,7 +276,7 @@ public class LobbyController : NetworkBehaviour
             {
                 if (playerName.Equals(go.transform.Find("PlayerName").transform.FindChild("Text").GetComponent<Text>().text))
                 {
-                    go.GetComponent<LobbyMenu>().readyButton.GetComponent<Image>().color = player.playerReady ? Color.green : Color.red;
+                    go.GetComponent<LobbyMenu>().readyButton.GetComponent<Image>().color = player.playerReady ? Color.green : Color.white;
                 }
             }
         }
