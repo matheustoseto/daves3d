@@ -26,7 +26,7 @@ public class ButtonSwitch : NetworkBehaviour
         if (other.gameObject.tag.Equals("Player") && !bridgeReady)
         {
             audioS.Play();
-            PlayerNetworkSetup.Instance.CmdButton(false, idButton, gameObject);
+            PlayerNetworkSetup.Instance.CmdButton(true, idButton, gameObject);
             Bridge.Instance.SendAddBridgeStage();
         }
     }
