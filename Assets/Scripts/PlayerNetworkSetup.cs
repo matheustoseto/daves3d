@@ -32,16 +32,16 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
     private void Start()
     {
-        if (gameStart)
-        {
-            NetworkServer.SpawnObjects();
-            CmdDeletePlayer(gameObject);
-        }
-            
         DontDestroyOnLoad(gameObject);
 
         if (isLocalPlayer)
-            instance = this;     
+            instance = this;
+      
+        //GAP
+        if(isLocalPlayer)
+            foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Player"))
+                if(obj.GetComponent<PlayerNetworkSetup>().gameStart)
+                    CmdDeletePlayer(gameObject);
     }
 
     private void Awake()
@@ -189,8 +189,8 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     [Command]
     public void CmdDeletePlayer(GameObject player)
     {
-        Destroy(player);
         RpcDeletePlayer(player);
+        Destroy(player);      
     }
 
     [ClientRpc]

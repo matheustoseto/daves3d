@@ -114,7 +114,6 @@ public class MultiGameController : NetworkBehaviour
 
     void OnGUI()
     {
-        int space = 20;
         GUI.skin.font = font;
         GUI.skin.label.fontSize = 40;
 
