@@ -39,11 +39,9 @@ public class MultiGameController : NetworkBehaviour
     public AudioClip audioClipDie;
 
     private static MultiGameController instance = null;
+    public static MultiGameController Instance { get { return instance; } }
 
-    public static MultiGameController Instance
-    {
-        get { return instance; }
-    }
+    public bool isOptionPanel = false;
 
     void Start()
     {
@@ -63,7 +61,11 @@ public class MultiGameController : NetworkBehaviour
         }
     }
 
- 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            isOptionPanel = !isOptionPanel;
+    }
 
     private void OnLevelWasLoaded(int level)
     {
@@ -94,16 +96,21 @@ public class MultiGameController : NetworkBehaviour
             //gameObject.transform.Find("PlayerCamera").gameObject.SetActive(false);
             if(GameObject.Find("MainCamera"))
                 GameObject.Find("MainCamera").SetActive(false);
-            GetComponent<PlayerController>().hasJetPack = false;
-            GetComponent<PlayerController>().hasPistol = false;
-            GetComponent<PlayerController>().jetPackPrefab.SetActive(false);
-            GetComponent<PlayerController>().pistolPrefab.SetActive(false);
-            GetComponent<CharacterController>().enabled = false;
-            GetComponent<PlayerController>().enabled = false;
-            GetComponent<MultiGameController>().enabled = false;
 
-            GetComponent<PlayerNetworkSetup>().timerGameOver = 600f;
+            resetPlayer();
         }      
+    }
+
+    public void resetPlayer()
+    {
+        GetComponent<PlayerController>().hasJetPack = false;
+        GetComponent<PlayerController>().hasPistol = false;
+        GetComponent<PlayerController>().jetPackPrefab.SetActive(false);
+        GetComponent<PlayerController>().pistolPrefab.SetActive(false);
+        GetComponent<CharacterController>().enabled = false;
+        GetComponent<PlayerController>().enabled = false;
+        GetComponent<MultiGameController>().enabled = false;
+        GetComponent<PlayerNetworkSetup>().timerGameOver = 600f;
     }
 
     [Command]
@@ -136,7 +143,18 @@ public class MultiGameController : NetworkBehaviour
                 GUI.Label(new Rect((Screen.width / 2) - (150 / 2), Screen.height - 50, 300, 50), jackpackTexture);
                 GUI.DrawTexture(new Rect((Screen.width / 2) - (340 / 2), Screen.height - 20, 300 / 50 * player.GetComponent<PlayerController>().maxJetpack, 15), jackPackBar_2);
             }
-                
+
+            if (isOptionPanel)
+            {
+                GUI.Box(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 150, 150, 150), "Menu");
+
+                if (GUI.Button(new Rect(Screen.width / 2 - 40, Screen.height / 2 - 120, 130, 50), "Disconnect"))
+                {
+                    resetPlayer();
+                    PlayerNetworkSetup.Instance.CmdDeletePlayer(NetworkManagerHUD.Instance.gameObject);
+                    NetworkManagerHUD.Instance.manager.StopHost();                 
+                }                    
+            }              
         }
 
         GUI.EndGroup();
