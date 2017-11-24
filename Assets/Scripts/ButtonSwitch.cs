@@ -15,12 +15,14 @@ public class ButtonSwitch : NetworkBehaviour
 
     public GameObject playerPress;
 
-    private static ButtonSwitch instance;
-    public static ButtonSwitch Instance { get { return instance; } }
+    public Transform checkpoint;
+
+    //private static ButtonSwitch instance;
+    //public static ButtonSwitch Instance { get { return instance; } }
 
     private void Start()
     {
-        instance = this;
+        //instance = this;
     }
 
     void OnTriggerEnter(Collider other)
@@ -29,7 +31,7 @@ public class ButtonSwitch : NetworkBehaviour
         {
             playerPress = other.gameObject;
             audioS.Play();
-            PlayerNetworkSetup.Instance.CmdButton(true, idButton);
+            PlayerNetworkSetup.Instance.CmdButton(false, idButton, gameObject);
             Bridge.Instance.SendAddBridgeStage();
         }
     }
@@ -38,7 +40,7 @@ public class ButtonSwitch : NetworkBehaviour
     {
         if (other.gameObject.tag.Equals("Player") && !bridgeReady)
         {
-            PlayerNetworkSetup.Instance.CmdButton(false, idButton);
+            PlayerNetworkSetup.Instance.CmdButton(false, idButton, gameObject);
             Bridge.Instance.SendRemoveBridgeStage();
         }
     }
@@ -47,7 +49,7 @@ public class ButtonSwitch : NetworkBehaviour
     {
         animator.SetBool("Press", true);
         bridgeReady = true;
-        playerPress.GetComponent<PlayerSync>().startPoint = gameObject.transform.position;
+        playerPress.GetComponent<PlayerSync>().startPoint = checkpoint.position;
     }
 
     [Command]

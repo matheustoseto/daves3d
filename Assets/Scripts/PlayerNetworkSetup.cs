@@ -226,9 +226,10 @@ public class PlayerNetworkSetup : NetworkBehaviour {
     }
 
     [Command]
-    public void CmdButton(bool trigger, int idButton)
+    public void CmdButton(bool trigger, int idButton, GameObject gameObject)
     {
-        ButtonSwitch.Instance.CmdButton(trigger, idButton);
+        //ButtonSwitch.Instance.CmdButton(trigger, idButton);
+        gameObject.GetComponent<ButtonSwitch>().CmdButton(trigger, idButton);
     }
 
     [Command]

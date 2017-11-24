@@ -71,7 +71,7 @@ public class PlayerSync : NetworkBehaviour {
     {
         if (GameObject.FindGameObjectWithTag("StartPoint"))
         {
-            if(startPoint == null)
+            if(!ready)
                 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
 
             playerTransform.position = startPoint;
