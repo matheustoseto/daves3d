@@ -6,6 +6,9 @@ public class Bridge : NetworkBehaviour
 {
     public Animator animator;
 
+    public AudioSource audioS;
+    
+
     [SyncVar]
     public int stageBridge = 0;
 
@@ -102,7 +105,7 @@ public class Bridge : NetworkBehaviour
         if ("On".Equals(trigger))
         {
             bridgeReady = true;
-
+            audioS.Play();
             foreach (GameObject bj in GameObject.FindGameObjectsWithTag("ButtonSwitch"))
                 bj.GetComponent<ButtonSwitch>().SetBridgeReady();
         }
