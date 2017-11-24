@@ -17,6 +17,8 @@ public class SinglePlayerController : MonoBehaviour {
     float currentSpeed;
     float velocityY;
 
+    public float timerBullet = 0;
+
     Animator animator;
     CharacterController controller;
 
@@ -65,6 +67,9 @@ public class SinglePlayerController : MonoBehaviour {
         velocityY += Time.deltaTime * gravity;
         Move(input);
         Animating(input);
+
+        if (timerBullet >= 0)
+            timerBullet -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             Jump();
@@ -148,10 +153,11 @@ public class SinglePlayerController : MonoBehaviour {
 
     void Shoot()
     {
-        if (controller.isGrounded && hasPistol)
+        if (controller.isGrounded && hasPistol && timerBullet < 0)
         {
             animator.SetTrigger("IsShoot");
             Fire();
+            timerBullet = 0.5f;
             audioS.clip = audioClipGun;
             audioS.Play();
         }
