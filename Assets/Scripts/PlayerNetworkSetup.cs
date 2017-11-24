@@ -201,9 +201,11 @@ public class PlayerNetworkSetup : NetworkBehaviour {
 
         if (SceneManager.GetActiveScene().name.Equals("Multi_fase_1"))
         {
-            if (isViewer)
+            Debug.Log(isViewer);
+            if (isViewer){
                 CmdDeletePlayer(gameObject);
-
+                Destroy(gameObject);
+            }
             loadMultiPlayer = true;
         }
             
