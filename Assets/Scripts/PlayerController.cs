@@ -89,7 +89,7 @@ public class PlayerController : NetworkBehaviour {
         {
             audioJetPack.Play();
         }
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.Joystick1Button2))
         {
             audioJetPack.Stop();
         }
