@@ -151,13 +151,21 @@ public class MultiGameController : NetworkBehaviour
                 if (GUI.Button(new Rect(Screen.width / 2 - 40, Screen.height / 2 - 120, 130, 50), "Disconnect"))
                 {
                     resetPlayer();
-                    PlayerNetworkSetup.Instance.CmdDeletePlayer(NetworkManagerHUD.Instance.gameObject);
-                    NetworkManagerHUD.Instance.manager.StopHost();                 
+                    CmdRemovePlayerOnList(NetworkManagerHUD.Instance.playerName);
+                    PlayerNetworkSetup.Instance.CmdDeletePlayer(gameObject);
+                    NetworkManagerHUD.Instance.manager.StopHost();
+                    Destroy(NetworkManagerHUD.Instance.gameObject);
                 }                    
             }              
         }
 
         GUI.EndGroup();
+    }
+
+    [Command]
+    public void CmdRemovePlayerOnList(string playerName)
+    {
+        RemovePlayerOnList(playerName);
     }
 
     public Player GetPlayer(string playerName)
@@ -173,6 +181,12 @@ public class MultiGameController : NetworkBehaviour
     {
         var obj = NetworkManagerHUD.Instance.playerList.FirstOrDefault(x => x.index == p.index);
         if (obj != null) obj = p;
+    }
+
+    public void RemovePlayerOnList(string playerName)
+    {
+        Debug.Log(playerName);
+        NetworkManagerHUD.Instance.playerList.RemoveAll(x => x.playerName == playerName);
     }
 
     [Command]
