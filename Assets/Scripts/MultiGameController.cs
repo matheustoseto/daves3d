@@ -163,7 +163,7 @@ public class MultiGameController : NetworkBehaviour
     {
         Player player = GetPlayer(playerName);
 
-        player.score = score;
+        player.score += score;
 
         UpdatePlayer(player);
     }
@@ -171,7 +171,6 @@ public class MultiGameController : NetworkBehaviour
     public void AddScore(int scr)
     {
         score += scr;
-
         CmdAddScore(NetworkManagerHUD.Instance.playerName, scr);
     }
 
