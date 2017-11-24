@@ -66,7 +66,7 @@ public class PlayerNetworkSetup : NetworkBehaviour {
             if (NetworkManagerHUD.Instance.gameStart)
             {
                 isViewer = true;
-                SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
+                //SceneManager.LoadScene("Multi_fase_1", LoadSceneMode.Single);
             }
             else
             {
