@@ -76,16 +76,16 @@ public class PlayerController : NetworkBehaviour {
         if(timerBullet >= 0)
             timerBullet -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             Jump();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             Shoot();
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetButton("CircleButton"))
             JetPack();
 
-        if (Input.GetMouseButtonDown(1) && hasJetPack)
+        if (Input.GetMouseButtonDown(1) && hasJetPack || Input.GetKeyDown(KeyCode.Joystick1Button2) && hasJetPack)
         {
             audioJetPack.Play();
         }

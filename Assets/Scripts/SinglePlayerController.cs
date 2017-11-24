@@ -66,21 +66,21 @@ public class SinglePlayerController : MonoBehaviour {
         Move(input);
         Animating(input);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             Jump();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             Shoot();
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetButton("CircleButton"))
         {
             JetPack();
         }
-        if (Input.GetMouseButtonDown(1) && hasJetPack)
+        if (Input.GetMouseButtonDown(1) && hasJetPack || Input.GetKeyDown(KeyCode.Joystick1Button2) && hasJetPack)
         {
             audioJetPack.Play();
         }
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.Joystick1Button2))
         {
             audioJetPack.Stop();
         }
