@@ -13,7 +13,7 @@ public class ButtonSwitch : NetworkBehaviour
 
     public AudioSource audioS;
 
-    
+    public GameObject playerPress;
 
     private static ButtonSwitch instance;
     public static ButtonSwitch Instance { get { return instance; } }
@@ -27,6 +27,7 @@ public class ButtonSwitch : NetworkBehaviour
     {
         if (other.gameObject.tag.Equals("Player") && !bridgeReady)
         {
+            playerPress = other.gameObject;
             audioS.Play();
             PlayerNetworkSetup.Instance.CmdButton(true, idButton);
             Bridge.Instance.SendAddBridgeStage();
@@ -46,6 +47,7 @@ public class ButtonSwitch : NetworkBehaviour
     {
         animator.SetBool("Press", true);
         bridgeReady = true;
+        playerPress.GetComponent<PlayerSync>().startPoint = gameObject.transform.position;
     }
 
     [Command]

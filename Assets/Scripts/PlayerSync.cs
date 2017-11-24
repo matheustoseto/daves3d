@@ -14,6 +14,8 @@ public class PlayerSync : NetworkBehaviour {
     public float threshold = 1f;
     public bool ready = false;
 
+    public Vector3 startPoint;
+
     private void Start()
     {
         if (GameObject.FindGameObjectWithTag("StartPoint"))
@@ -69,7 +71,9 @@ public class PlayerSync : NetworkBehaviour {
     {
         if (GameObject.FindGameObjectWithTag("StartPoint"))
         {
-            Vector3 startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+            if(startPoint == null)
+                startPoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+
             playerTransform.position = startPoint;
             syncPos = startPoint;
             lastPos = startPoint;
